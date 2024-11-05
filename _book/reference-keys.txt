@@ -1,8 +1,7 @@
-about
-usage
-render-book
-preview-book
-hello-bookdown
+fig:nice-fig
+tab:nice-tab
+eq:binom
+la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción
 a-section
 cross
 chapters-and-sub-chapters
