@@ -1,8 +1,18 @@
 # La teoría asintótica clásica, las distribuciones extremales y sus dominios de atracción
 
 
+Se dice que tenemos _datos extremos_ cuando cada
+dato corresponde al máximo o mínimo de varios
+registros. Ejemplos de este tipo de datos son:
 
-All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
+- La máxima altura semanal de la ola en una
+plataforma marina o portuaria $(m)$.
+- La máxima velocidad de viento en determinada
+dirección a lo largo de un mes $(km/h)$.
+- La temperatura ambiental mínima a lo largo de
+un día $(\dot{C})$.
+
+
 
 ## A section
 
