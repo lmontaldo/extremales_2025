@@ -1,6 +1,6 @@
 
 
-```{r}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 library(evd)
 ```
 
@@ -143,7 +143,7 @@ adelante veremos esto más precisamente. En la Fréchet, la
 velocidad de convergencia a 1 crece al aumentar el orden. En cambio en la Weibull el orden afecta la velocidad con que va a 0 cuando $x$ tiende a menos infinito, que crece cuanto mayor el orden. Esto quedará más claro con el Teorema 1 del curso. La visualización de las densidades de cada tipo quizás ayude a comprender mejor los pesos relativos de las colas.
 
 
-```{r plot-extreme-distributions, echo=FALSE, fig.height=5, fig.width=6}
+```{r plot-extreme-distributions, echo=FALSE, fig.height=5, fig.width=6, message=FALSE, warning=FALSE}
 # Load necessary package
 library(ggplot2)
 

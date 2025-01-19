@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 Bienvenides al curso 2025 de Estadística para datos extremales.
 
 ## Usage 
