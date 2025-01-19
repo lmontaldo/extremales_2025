@@ -1,0 +1,9 @@
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Capítulo "
+    appendix_name: "Apéndice "
+    part_name: "Parte "
+    figure_name: "Figura "
+    table_name: "Tabla "
+    theorem_name: "Teorema "
