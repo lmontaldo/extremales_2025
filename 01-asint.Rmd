@@ -43,7 +43,7 @@ distribuciones son, respectivamente, $F$ y $G$,
 entonces la variable
 
 \begin{equation}
-\max \left( X,Y \right)\hspace{10cm}(1)
+\max \left( X,Y \right)
 \label{eq:1}
 \end{equation}
 
@@ -51,7 +51,7 @@ tiene por distribución la función $H$ definida por
 
 
 \begin{equation}
-H(t)= F(t)\; G(t)\hspace{8.9cm}(2)
+H(t)= F(t)\; G(t)
 \label{eq:2}
 \end{equation}
 
@@ -70,13 +70,13 @@ __Observación 3:__ Resulta claramente de la
 Observación 1, que si tenemos datos $X_1,...,X_n$ $iid$ con distribución $F$, entonces
 
 \begin{equation}
-X_n^{\ast}= \max \left( X_1,...,X_n \right)\hspace{7cm}(3)
+X_n^{\ast}= \max \left( X_1,...,X_n \right)
 \end{equation}
 
 tiene distribución $F_n^\ast$ dada por
 
 \begin{equation}
-F_n^\ast (t) = F(t)^n\hspace{9cm}(4)
+F_n^\ast (t) = F(t)^n
 \end{equation}
 
 Si conocemos la distribución $F$ conoceríamos la
@@ -95,7 +95,7 @@ __Observación 4:__ Si $X_1,...,X_n\;$ es $iid\;$ y definimos
 $\;Y_i = -X_i\;$ para todo valor de $i$, entonces $Y_1,...,Y_n\;$ es $iid\;$ y además
 
 \begin{equation}
-min(X_1,...,X_n) = - max(Y_1,...,Y_n)\hspace{4.8cm}(5)
+min(X_1,...,X_n) = - max(Y_1,...,Y_n)
 \end{equation}
 
 la teoría asintótica de los mínimos de datos $iid$
@@ -115,7 +115,7 @@ Se dice que una variable tiene distribución de:
 
 -__Gumbel__ si su distribución es
  
-$$\Lambda(x) = e^{\{-e^{-x}\}}\hspace{0.3cm}\text{ para todo }\: x \;\text{real}.\hspace{4.2cm} (6)$$
+$$\Lambda(x) = e^{\{-e^{-x}\}}\hspace{0.3cm}\text{ para todo }\: x \;\text{real}.$$
 
 
 -__Weibull__ de orden $\alpha>0$ si su distribución es
@@ -124,7 +124,7 @@ $$\Lambda(x) = e^{\{-e^{-x}\}}\hspace{0.3cm}\text{ para todo }\: x \;\text{real}
 $$\Psi_{\alpha}(x)=\begin{cases}
 e^{\left\{-(-x)^{\alpha}  \right\}} & si\;x<0\\
 1 & \text{en otro caso}
-\end{cases} \hspace{3.9cm} (7)$$
+\end{cases}$$
 
 
 -__Fréchet__ de orden $\alpha>0$ si su distribución es
@@ -133,7 +133,7 @@ $$
 \Phi_{\alpha}(x)=\begin{cases}
 e^{\left\{ -x^{-\alpha}\right\}} & si\;x>0\\
 0 & \text{en otro caso}
-\end{cases} \hspace{4.2cm} (8) 
+\end{cases}
 $$
 __Nota:__ Como los máximos en general son valores grandes,
 importa particularmente observar el comportamiento de estas distribuciones para $x$ tendiendo a infinito. El límite es $1$ como en toda distribución. Pero *VA MAS RAPIDO* a 1 la Weibull, luego la Gumbel y luego la Fréchet. Esto es indicio que la
@@ -206,6 +206,14 @@ ajustes, etc.
 
 __Teorema 1 : *Relaciones entre las versiones
 standard de las distribuciones extremales.*__
+
+
+$X$ tiene distribución $\Phi_{\alpha}$ $\Leftrightarrow$  $(-1/X)$ tiene distribución $\Psi_{\alpha}$ $\Leftrightarrow$ $\log(X^{\alpha})$ tiene distribución $\Lambda$. 
+
+
+Nota: en otros contextos de la Estadística (en particular en
+alguna rutinas del R), se le llama Weibull a una variable que
+corresponde a -X, con X Weibull como definimos nosotros.
 
 <!--
 
