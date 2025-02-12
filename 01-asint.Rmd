@@ -5,7 +5,7 @@ library(evd)
 ```
 
 
-# La teoría asintótica clásica, las distribuciones extremales y sus dominios de atracción.
+# La teoría asintótica clásica, las distribuciones extremales y sus dominios de atracción
 
 
 Se dice que tenemos _datos extremos_ cuando cada
@@ -354,6 +354,21 @@ cat("Promedio empírico:", promedio_empirico, "\n")
 cat("Desviación estándar empírica:", desviacion_std_empirica, "\n")
 cat("Mediana empírica:", mediana_empirica, "\n")
 ```
+
+Observar que los resultados empíricos están cerca del valor esperado, desvío standard y mediana de la Gumbel standard.
+
+
+A continuación presentaremos el Teorema medular de esta primera parte, expresado de la manera más llana posible. Veremos posteriormente algunos detalles con más cuidado. En particular, veremos que la continuidad de la distribución $F$ no
+es una hipótesis real (ni es necesaria ni es suficiente, por eso la
+entrecomillamos), pero ayuda a visualizar que no vale el teorema para toda distribución $F$, así como veremos con cierto detalle más adelante...
+
+
+Teorema 3: de Fischer-Tippet-Gnedenko (FTG)
+Si X1,...,Xn iid con distribución F “continua”,
+llamamos Fn* a la distribución de max(X1,...,Xn) y n
+es grande, entonces existen m real y b > 0 tales que
+alguna de las siguientes tres afirmaciones es
+correcta:
 
 <!--
 
