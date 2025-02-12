@@ -215,6 +215,89 @@ Nota: en otros contextos de la Estadística (en particular en
 alguna rutinas del R), se le llama Weibull a una variable que
 corresponde a -X, con X Weibull como definimos nosotros.
 
+__Observación 5:__  Recordamos que la función
+Gamma ($\Gamma$ ), que extiende a la función factorial
+($\Gamma(n)=n-1!\quad \forall n$ natural) definida por
+
+
+\begin{equation}
+\Gamma(x)=\int_{0}^{\infty} t^{u-1}e^{-t}dt
+\end{equation}
+
+es una función disponible tanto en el software R
+como en planillas de cálculo, etc.
+
+
+__Teorema 2: (Tres en uno) *Algunos datos de las
+distribuciones extremales.*__
+
+__Parte 1__
+
+Si $X$ tiene distribución $\Lambda^{(\mu,\beta)}$ entonces tiene:
+
+
+
+a) __Esperanza__: $E(X) = \mu + \beta\gamma$, donde $\gamma$ es la constante de Euler-Mascheroni, cuyo valor aproximado es $0.5772156649$.
+
+b) __Moda__:  $\text{moda}(X)=\mu$
+
+c)  __Mediana__: $\text{med}(X)=\mu - \beta \log(\log 2) \approx \mu - 0.36651 \beta$
+
+d)  __Desviación estándar__: $\sigma(X)=\beta \pi \sqrt{6} \approx 1.2825 \beta$
+
+e) Si $X^+ = \max(X,0)$, entonces $E(X+k)$ es finito para todo valor de $k$ natural
+
+f) Para simular computacionalmente $X$, se puede tomar $U$ uniforme en $(0,1)$ y hacer $X = \mu - \beta \log(-\log U)$.
+
+
+__Parte 2__
+
+Si $X$ tiene distribución $\Psi^{(\mu, \beta)}$ entonces tiene:
+
+a) $E(X)=\mu -\beta \Gamma (1+1/\alpha)$
+
+b) \begin{equation*}\text{moda}(X) =\begin{cases} 
+  \mu  & \text{si }\; \alpha \leq 1 \\
+    \mu-\beta\left\{ \frac{\left( \alpha-1 \right)}{\alpha} \right\}^{1/\alpha} & \text{si }\; \alpha >1
+\end{cases}\end{equation*}
+
+
+c) $\text{med}(X)=\mu - \beta (\log 2)^{\frac{1}{\alpha}}$
+
+d) $\sigma(X)=\beta\left\{\Gamma\left( 1+\frac{2}{\alpha} \right)-\Gamma\left( 1+\frac{1}{\alpha} \right)^2  \right\}^{1/2}$.
+
+__Parte 3__
+
+Si $X$ tiene distribución $\Phi_{\alpha}^{(\mu, \beta)}$ entonces tiene:
+
+a) 
+\begin{equation*}
+E(x) =
+\begin{cases} 
+    \mu + \beta\;\Gamma\left( 1-\frac{1}{\alpha} \right) & \text{si } \alpha>1 \\
+    \infty & \text{en otro caso}
+\end{cases}
+\end{equation*}
+
+b)  $\text{moda}(X)=\mu+ \beta\;\left\{ \frac{\alpha}{\left( 1+ \alpha\right)}\right\}^{1/\alpha}$
+
+c) $\text{med}(X)=\mu + \beta \;\left( \log 2 \right)^{\left( -1/\alpha \right)}$
+
+d) \begin{equation*}
+\sigma(x) =
+\begin{cases} 
+    \mu + \left| \Gamma \left( 1 - \frac{2}{\alpha} \right) - \Gamma \left(  1 - \frac{1}{\alpha}\right)\right|  & \text{si } \; \alpha>2 \\
+    \infty & \text{si } \; 1<\alpha \leq 2
+\end{cases}
+\end{equation*}
+
+
+
+
+
+
+
+
 <!--
 
 Siguiendo a @notas_curso
