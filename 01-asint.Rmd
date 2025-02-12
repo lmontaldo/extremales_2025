@@ -186,10 +186,10 @@ un parámetro de escala $(\beta)$.
 
 Se dice que $X$ tiene distribución: 
 
-- $\Lambda^{(\mu, \beta)}$ si $\;X=\mu + \beta Y\;$, donde $Y$ tiene distribución $\Lambda$.
-- $\;\Psi^{(\mu, \beta)}\;$ si $\;X=\mu + \beta Y\;$, donde $Y$ tiene distribución $\Psi_{\alpha}$.
+- __Gumbel__ : $\Lambda^{(\mu, \beta)}$ si $\;X=\mu + \beta Y\;$, donde $Y$ tiene distribución $\Lambda$.
+- __Weibull__: $\;\Psi^{(\mu, \beta)}\;$ si $\;X=\mu + \beta Y\;$, donde $Y$ tiene distribución $\Psi_{\alpha}$.
 
-- $\;\Phi^{(\mu, \beta)}\;$ si $X=\mu + \beta Y$, donde $Y$ tiene distribución $\Phi_{\alpha}$.
+- __Fréchet__: $\;\Phi^{(\mu, \beta)}\;$ si $X=\mu + \beta Y$, donde $Y$ tiene distribución $\Phi_{\alpha}$.
 
 
 En general, es en este sentido que diremos que una
@@ -243,7 +243,7 @@ b) __Moda__:  $\text{moda}(X)=\mu$
 
 c)  __Mediana__: $\text{med}(X)=\mu - \beta \log(\log 2) \approx \mu - 0.36651 \beta$
 
-d)  __Desviación estándar__: $\sigma(X)=\beta \pi \sqrt{6} \approx 1.2825 \beta$
+d)  __Desviación estándar__: $\sigma(X)=\frac{\beta \pi}{\sqrt{6}}   \approx 1.2825 \beta$
 
 e) Si $X^+ = \max(X,0)$, entonces $E(X+k)$ es finito para todo valor de $k$ natural
 
@@ -292,11 +292,68 @@ d) \begin{equation*}
 \end{equation*}
 
 
+__Observación 6:__ El item e) de la Parte 1 es
+trivialmente cierto para Weibull y tomando en
+cuenta el item a) de la Parte 3, es claramente falso
+para Fréchet.
 
+__Observación 7:__ El item f) de la Parte 1 en
+conjunto con el Teorema 1 brinda fórmulas
+sencillas para simular computacionalmente
+distribuciones Weibull o Fréchet.
 
+__Observación 8:__ Se generaron mil números aleatorios y aplicando el
+item f) de la Parte 1: se simularon mil variables
+Gumbel standard $iid$, calculándose su promedio, su
+desviación standard empírica y su mediana
+empírica. 
 
+```{r echo=TRUE}
+# Fijar semilla para reproducibilidad
+set.seed(123)
 
+# Definir parámetros
+mu <- 0       # Centro
+beta <- 1     # Escala
+gamma <- 0.5772156649  # Constante de Euler-Mascheroni
 
+# Número de simulaciones
+n <- 1000
+
+# Generar 1000 valores de una variable uniforme en (0,1)
+U <- runif(n)
+
+# Simular la variable Gumbel con parámetros (mu, beta)
+X_gumbel <- mu - beta * log(-log(U))
+
+# Calcular estadísticas
+esperanza <- mu + beta * gamma
+moda <- mu
+mediana_teorica <- mu - beta * log(log(2))
+desviacion_std_teorica <- beta * pi / sqrt(6)
+
+# Calcular estadísticas empíricas
+promedio_empirico <- mean(X_gumbel)
+desviacion_std_empirica <- sd(X_gumbel)
+mediana_empirica <- median(X_gumbel)
+```
+
+Los resultados fueron los siguientes:
+
+```{r echo=FALSE}
+# Mostrar resultados teóricos
+cat("----- Resultados teóricos: ----- \n")
+cat("Esperanza teórica:", esperanza, "\n")
+cat("Moda teórica:", moda, "\n")
+cat("Mediana teórica:", mediana_teorica, "\n")
+cat("Desviación estándar teórica:", desviacion_std_teorica, "\n\n")
+
+# Mostrar resultados empíricos
+cat("----- Resultados empíricos (simulación con n =", n, "): -----\n")
+cat("Promedio empírico:", promedio_empirico, "\n")
+cat("Desviación estándar empírica:", desviacion_std_empirica, "\n")
+cat("Mediana empírica:", mediana_empirica, "\n")
+```
 
 <!--
 
