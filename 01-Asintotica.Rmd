@@ -7,6 +7,7 @@ output:
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 library(evd)
+library(ggplot2)
 ```
 
 
@@ -19,9 +20,12 @@ library(evd)
 You may refer to using `\@ref(eq:binom)`, like see Equation \@ref(eq:binom).
 -->
 
-# 
+#  La teoría asintótica clásica, las distribuciones extremales y sus dominios de atracción 
 
-## La teoría asintótica clásica, las distribuciones extremales y sus dominios de atracción  {.unlisted .unnumbered}
+<!-- 
+{.unlisted .unnumbered}. 
+para sacar la numeracion a la seccion
+-->
 
 
 Se dice que tenemos _datos extremos_ cuando cada
@@ -432,10 +436,11 @@ __Ejemplo 1.__ Veamos un ejemplo de ajuste. Los
 siguientes datos corresponden a los valores, en $80$ puntos geográficos distintos de la región parisina, del máximo estival del contaminante atmosférico $O_3$ (no perceptible sensorialmente y con impacto
 sanitario serio). Cada dato es el máximo registro en cada sensor a lo largo de todo un verano; el contaminante se mide diariamente, por lo cual, cada uno de nuestros $80$ datos es el máximo de unas $100$ lecturas diarias.
 
+
+
 ```{r echo=FALSE, paged.print=TRUE}
-print("Primeros 6 datos:")
 data <- data.frame(
-  i = 1:80,
+#  i = 1:80,
   X_i = c(430.3, 115.7, 4.48, 26.95, 72.27, 206.4, 22.79, 25.03, 226.8, 11.1,
         1572, 100, 104.5, 37.1, 20.22, 106.9, 47.2, 62.82, 39.3, 18.52,
         41.47, 429.5, 1228, 127.6, 9.93, 90.4, 201.7, 295.1, 20.62, 20.58,
@@ -447,11 +452,68 @@ data <- data.frame(
 ```
 
 ```{r echo=FALSE, paged.print=FALSE}
+print("Primeros 6 datos:")
 head(data)
 ```
+Los valores se miden en unidades de referencia
+standarizadas que, en particular, permiten
+comparar las medidas de lugares diferentes,
+independientemente de variables relevantes como
+altura e incidencia solar, por trabajo previo de
+calibración.
 
-# Convertir a DataFrame
-df = pd.DataFrame(data)
+El objetivo del estudio en esta etapa es conocer la
+distribución de estos datos y en particular estimar
+la probabilidad de que el máximo estival en los 80
+puntos supere el valor 50 (correspondiente a
+existencia de riesgo moderado).
+
+Veamos los datos que tenemos:
+
+```{r echo=FALSE}
+# Histograma de los datos
+ggplot(data, aes(x = X_i)) +
+  geom_histogram(binwidth = 50, fill = "blue", alpha = 0.5, color = "black") +
+  labs(title = "Distribución de los datos", x = "X_i", y = "Frecuencia")
+```
+  
+  
+  
+```{r echo=FALSE}  
+print('Cálculo de estadísticos básicos')
+summary(data$X_i)
+```
+Como la mayoría de tests de ajustes suponen datos
+$iid$, realizaremos dos tests de aleatoriedad^[En inglés es 
+_randomness_.]:
+
+- runs up and down
+- Spearman correlation of ranks
+
+
+Para realizar el ajuste utilizaremos el test $\chi^2$ de
+ajuste^[Una excelente referencia para la temática de los
+test $\chi^2$ de ajuste es la introducción del trabajo
+Pearsonian Tests and Modifications (Jorge Graneri,
+CMAT, Facultad de Ciencias, 2002).]. 
+Este test requiere elegir una partición más o
+menos arbitraria de la recta real en intervalos; sin
+embargo es importante que en cada intervalo caiga
+una cantidad suficiente de datos de la muestra; en
+este caso hemos tomado como extremos de los
+intervalos los quintiles empíricos de nuestra
+muestra. 
+
+Una aclaración mucho más importante es
+que este test requiere estimar parámetros por el
+método de Máxima Verosimilitud Categórica, que da
+resultado distintos al método de Máxima
+Verosimilitud a secas^[Este hecho es frecuentemente
+ignorado y presentado erróneamente en los textos y
+cursos básicos de Estadística.].
+
+
+
 
 <!--
 
