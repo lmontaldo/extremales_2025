@@ -1,0 +1,13 @@
+name: 01-asint
+title: 01-asint
+username: montaldo_laura
+account: montaldo_laura
+server: bookdown.org
+hostUrl: https://bookdown.org/__api__
+appId: 15031
+bundleId: 104020
+url: https://bookdown.org/montaldo_laura/01-asint/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: 01-asint.Rmd

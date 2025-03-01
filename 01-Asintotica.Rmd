@@ -1,9 +1,3 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
-
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 library(evd)
@@ -27,6 +21,7 @@ You may refer to using `\@ref(eq:binom)`, like see Equation \@ref(eq:binom).
 para sacar la numeracion a la seccion
 -->
 
+## Datos extremos
 
 Se dice que tenemos _datos extremos_ cuando cada
 dato corresponde al máximo o mínimo de varios
@@ -124,7 +119,7 @@ nos concentramos aquí en estudiar el
 comportamiento asintótico de los **máximos**
 exclusivamente. 
 
-__Definición 1: Las distribuciones extremales.__
+## Las distribuciones extremales
 
 Las distribuciones extremales son tres: la
 *distribución de Gumbel*, la *distribución de Weibull* y
@@ -432,6 +427,8 @@ Por consiguiente el $FTG$ alienta a intentar ajustar datos
 extremales a una de las tres distribuciones extremales, pero no
 siempre un tal ajuste dará un resultado afirmativo.
 
+<!--- EJEMPLO DEL LIBRO A REVEER -->
+
 __Ejemplo 1.__ Veamos un ejemplo de ajuste. Los
 siguientes datos corresponden a los valores, en $80$ puntos geográficos distintos de la región parisina, del máximo estival del contaminante atmosférico $O_3$ (no perceptible sensorialmente y con impacto
 sanitario serio). Cada dato es el máximo registro en cada sensor a lo largo de todo un verano; el contaminante se mide diariamente, por lo cual, cada uno de nuestros $80$ datos es el máximo de unas $100$ lecturas diarias.
@@ -470,12 +467,7 @@ existencia de riesgo moderado).
 
 Veamos los datos que tenemos:
 
-```{r echo=FALSE}
-# Histograma de los datos
-ggplot(data, aes(x = X_i)) +
-  geom_histogram(binwidth = 50, fill = "blue", alpha = 0.5, color = "black") +
-  labs(title = "Distribución de los datos", x = "X_i", y = "Frecuencia")
-```
+
   
   
   
@@ -487,7 +479,7 @@ Como la mayoría de tests de ajustes suponen datos
 $iid$, realizaremos dos tests de aleatoriedad^[En inglés es 
 _randomness_.]:
 
-- runs up and down
+- Runs test (Up & Down)
 - Spearman correlation of ranks
 
 
@@ -512,8 +504,240 @@ Verosimilitud a secas^[Este hecho es frecuentemente
 ignorado y presentado erróneamente en los textos y
 cursos básicos de Estadística.].
 
+```{r echo=FALSE}
+# Cargar librería necesaria para el Runs Test
+library(tseries)  
+
+# Crear una secuencia de diferencias consecutivas
+differences <- diff(data$X_i)
+
+# Convertir en una secuencia de signos (+1 si aumenta, -1 si disminuye)
+runs_sequence <- ifelse(differences > 0, 1, -1)
+
+# Aplicar Runs Test correctamente
+runs_test_result <- runs.test(as.factor(runs_sequence))
+print(runs_test_result)
+```
+
+```{r echo=FALSE, warning=FALSE}
+# Asegurar que data$Xi sea un vector numérico
+data$X_i <- as.numeric(data$X_i)
+
+# Test de correlación de Spearman (comparando con los índices)
+spearman_test_result <- cor.test(data$X_i, seq_along(data$X_i), method = "spearman")
+
+# Mostrar resultado
+print(spearman_test_result)
+```
+
+<!--El p-valor en runs up and down es 0,868 y en
+Spearman es 0,474.-->
+
+Como cada dato de los 80 que disponemos es un
+máximo de un centenar de observaciones,
+intentaremos ajustarlos a una distribución
+extremal sabiendo que no necesariamente
+tendremos éxito. 
+
+Observemos en particular que lo
+que pasamos por dos tests de aleatoriedad son los
+80 máximos, pero no el centenar de lecturas que
+forman cada uno de los 80 máximos (ni siquiera
+tenemos esos datos originales). 
+
+Dado que visualmente se aprecian valores muy apartados, se
+presume una distribución de colas pesadas y por
+ese motivo se intenta un ajuste a una Fréchet.
+
+```{r echo=FALSE}
+# Histograma de los datos
+ggplot(data, aes(x = X_i)) +
+  geom_histogram(binwidth = 50, fill = "blue", alpha = 0.5, color = "black") +
+  labs(title = "Distribución de los datos", x = "X_i", y = "Frecuencia")
+```
+
+<!--
+El test de ajuste $\chi^2$ da un $p-$valor de 0,467 para
+una Fréchet de α=1.04, μ= -6.5, β=44.
+-->
 
 
+```{r}
+# Parámetros del libro
+loc_libro <- -6.5    # μ
+scale_libro <- 44     # β
+shape_libro <- 1.04   # α (parámetro de forma positivo, Fréchet)
+
+# Cálculo de la probabilidad de exceder el valor 50
+prob_excede_50 <- 1 - pgev(50, loc = loc_libro, scale = scale_libro, shape = shape_libro)
+
+# Mostrar la probabilidad de excedencia
+print(paste("Probabilidad de excedencia del nivel 50:", round(prob_excede_50, 4)))
+
+```
+
+
+```{r}
+# Proporción empírica de excedencia del nivel 50
+prop_empirica <- mean(data$X_i > 50)
+print(paste("Proporción empírica de excedencia del nivel 50:", round(prop_empirica, 4)))
+
+# Intervalo de confianza para la proporción empírica
+prop_ci <- prop.test(sum(data$X_i > 50), length(data$X_i))$conf.int
+print(paste("Intervalo de confianza al 95%:", round(prop_ci[1], 3), "-", round(prop_ci[2], 3)))
+```
+
+```{r}
+print(paste("Probabilidad de excedencia del nivel 50:", round(prob_excede_50, 4)))
+
+```
+```{r}
+# Parámetros del libro
+loc_libro <- -6.5    # μ
+scale_libro <- 44     # β
+shape_libro <- 1.04   # α (parámetro de forma positivo, Fréchet)
+
+# Cálculo de la probabilidad de exceder el valor 50
+prob_excede_50 <- 1 - pgev(50, loc = loc_libro, scale = scale_libro, shape = shape_libro)
+print(paste("Probabilidad de excedencia del nivel 50:", round(prob_excede_50, 4)))
+
+```
+
+```{r}
+# Parámetros del libro
+loc_libro <- -6.5    # μ
+scale_libro <- 44     # β
+shape_libro <- 1.04   # α (parámetro de forma positivo, Fréchet)
+
+# Definir intervalos usando los quintiles empíricos
+breaks <- quantile(data$X_i, probs = seq(0, 1, length.out = 6))  # 5 intervalos
+
+# Calcular las frecuencias observadas en cada intervalo
+observed_counts <- hist(data$X_i, breaks = breaks, plot = FALSE)$counts
+
+# Calcular las probabilidades teóricas en cada intervalo usando la distribución Fréchet ajustada
+probs <- diff(pgev(breaks, loc = loc_libro, scale = scale_libro, shape = shape_libro))
+
+# Convertir probabilidades en frecuencias esperadas
+expected_counts <- probs * length(data$X_i)
+
+# Realizar el test de ajuste Chi-cuadrado
+chi_sq_test <- chisq.test(observed_counts, p = probs, rescale.p = TRUE)
+
+# Mostrar los resultados del test
+print("Resultados del test Chi-cuadrado con los parámetros del libro:")
+print(chi_sq_test)
+```
+
+
+```{r echo=FALSE}
+# Comparar gráficamente con un Q-Q plot
+theoretical_quantiles <- qgev(ppoints(length(data$X_i)), 
+                              loc = loc_libro, 
+                              scale = scale_libro, 
+                              shape = shape_libro)
+
+# Gráfico Q-Q
+qqplot(theoretical_quantiles, sort(data$X_i), 
+       main = "Q-Q Plot para la Distribución Fréchet Ajustada",
+       xlab = "Cuantiles Teóricos (Fréchet)",
+       ylab = "Datos Observados")
+abline(0, 1, col = "red")
+```
+
+<!-- Análisis del Q-Q Plot
+
+- Sección Inicial (Cuantiles Bajos): En los valores bajos, los puntos se alinean bien con la diagonal roja, indicando un buen ajuste en la parte central de la distribución.
+Colas Extremas:
+
+- Para los valores más extremos, se observan desviaciones importantes de la diagonal, especialmente en los cuantiles más altos.
+Esto sugiere que la distribución Fréchet ajustada podría no estar capturando completamente la cola extrema de los datos observados.
+-->
+
+
+
+```{r echo=FALSE}
+# Histograma con la curva de densidad ajustada
+hist(data$X_i, breaks = 20, prob = TRUE, main = "Histograma y Densidad Ajustada (Fréchet)",
+     xlab = "X_i", col = "lightblue", border = "white")
+curve(dgev(x, loc = loc_libro, scale = scale_libro, shape = shape_libro), 
+      add = TRUE, col = "red", lwd = 2)
+legend("topright", legend = "Fréchet ajustada", col = "red", lwd = 2)
+
+```
+
+<!-- Análisis del Histograma con Densidad Ajustada (Fréchet)
+
+- Ajuste General:La curva de densidad Fréchet (línea roja) sigue la tendencia general del histograma.
+Sin embargo, la altura de la primera barra es significativamente mayor que la densidad esperada, lo que sugiere una mayor concentración de valores pequeños.
+
+- Colas Pesadas: La distribución Fréchet modela bien las colas pesadas, aunque podría estar subestimando la frecuencia en las colas extremas.
+
+------------------------
+
+Conclusión: 
+- El test de ajuste $\chi^2$ mostró un p-valor aceptable (0.3553), lo cual apoya la hipótesis de un buen ajuste.
+
+Sin embargo, las visualizaciones gráficas indican que:
+
+- Hay una sobreestimación de la densidad en la parte inicial (valores bajos).
+- Hay una subestimación de la probabilidad de los valores extremadamente altos.
+
+Entonces, podría ser beneficioso:
+
+Probar otras distribuciones de colas pesadas, como Weibull o Pareto Generalizada (GPD).
+Realizar un análisis de valores extremos específicamente en la cola superior.
+
+
+------- ESTA ES LA CCL DE GONZA, COMO HIZO EL EJ? ------
+
+Conclusión del libro a reveer ejercicio porque no tengo los calculos: 
+Adoptando pues este modelo, un sencillo cálculo
+muestra que la probabilidad de que el máximo
+exceda 50 es 0.455, lo cual es absolutamente
+consistente con lo observado en la muestra, donde
+la proporción empírica de excedencia del nivel 50
+es 0.5125 con un intervalo de confianza al 95%
+para esta proporción de (0.403, 0.622). Se llega a la conclusión que hay una incidencia
+muy seria de niveles moderados de riesgo (se
+prevee que cerca de la mitad de los puntos estén
+afectados). 
+<!--- FIN EJEMPLO DEL LIBRO A REVEER -->
+
+__Observación 10.__ Una distribución $H$ se dice degenerada si $H(t)=0 \text{ ó } 1$ para todo valor de $t$. Representan a variables que no son tales, si la distribución de $X$ es degenerada, entonces $X$ es una constante, y no tiene sentido
+hacer estadística sobre $X$, por lo tanto sólo tienen
+interés para nosotros las distribuciones no-degeneradas.
+
+
+## Distribución Extremal Asintótica
+
+Si $X_1,...,X_n$ es iid con distribución $F$ diremos que $H$ no-degenerada es la Distribución Extremal Asintótica
+(DEA) de $F$^[De manera equivalente, que $F$ tiene DEA $H$.], si existen dos sucesiones de números reales, $d_n$ y $c_n>0$, tales que la distribución de
+\begin{equation}
+\frac{max(X_1,...,X_n)- d_n}{c_n}\;\text{ tiende a } H \text{ cuando } n \text{ tiende a infinito.}
+\end{equation}
+
+## Supremo esencial de una variable aleatoria o distribución
+
+Si $X$ tiene distribución $F$,
+se llama  $M_X$ al supremo esencial de $X$ o,
+indistintamente, supremo esencial de $F$ (denotado
+$M_F$) a
+
+
+\begin{equation}
+M_X = M_F = \sup\{t \; / \; F(t) < 1\}
+\end{equation}
+
+__Observación 11.__
+
+- Si $F$ es $U(a,b)$, $M_F=b$.
+- Si $F$  es $Bin(m,p)$, $M_F=m$.
+- Si $F$  es Normal, Exponencial, Cauchy o Poisson entonces $M_F$ es infinito.
+
+\begin{teorema}
+esto es un teorema
+\end{teorema}
 
 <!--
 
