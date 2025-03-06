@@ -179,8 +179,8 @@ frechet_vals <- frechet_pdf(x_frechet, alpha = 1)  # Order 1
 
 # Create data frames for ggplot
 df_gumbel <- data.frame(x = x_gumbel, y = gumbel_vals, Distribution = "Gumbel")
-df_weibull <- data.frame(x = x_weibull, y = weibull_vals, Distribution = "Weibull (α=1)")
-df_frechet <- data.frame(x = x_frechet, y = frechet_vals, Distribution = "Fréchet (α=1)")
+df_weibull <- data.frame(x = x_weibull, y = weibull_vals, Distribution = "Weibull (alpha=1)")
+df_frechet <- data.frame(x = x_frechet, y = frechet_vals, Distribution = "Fréchet (alpha=1)")
 
 # Combine all data
 df <- rbind(df_gumbel, df_weibull, df_frechet)
@@ -735,9 +735,114 @@ __Observación 11.__
 - Si $F$  es $Bin(m,p)$, $M_F=m$.
 - Si $F$  es Normal, Exponencial, Cauchy o Poisson entonces $M_F$ es infinito.
 
-\begin{teorema}
-esto es un teorema
-\end{teorema}
+__Teorema 4:__ Si $X_1,...,X_n$ iid con distribución $F$ cualquiera, entonces, para $n \rightarrow \infty$,
+
+\begin{equation}
+X_n^{\ast} =max(X_1,...,X_n) \rightarrow M_F
+\end{equation}
+
+
+__Observación 12.__ El resultado anterior vale
+incluso si $M_F$ es infinito, pero si $M_F$ es finito, como
+$Xn* - Mf$ tiende a cero, por analogía con el Teorema
+Central del Límite para promedios, buscaríamos
+una sucesión $c_n>0$ y que tienda a cero de modo tal
+que $(X_n^{\ast}- M_F )/ c_n$ tienda a una distribución no-
+degenerada y de allí surge buscar la DEA.
+
+
+__Teorema 5:__  Si $F$ es una distribución con $M_F$ finito, y para $X$ con distribución $F$ se cumple que
+\begin{equation}
+P(X=M_F)>0
+\end{equation}
+entonces $F$ no admite DEA.
+
+__Observación 13.__ Si $F$ es $Bin(m,p) \Rightarrow M_F=m$. Si $X$
+tiene distribución $F$, entonces
+$P( X=M_F)= P( X=m)= p^m>0$,
+asi que la distribucion $Bin(m,p)$ NO admite DEA,
+no se puede aproximar la distribución del máximo
+de una muestra iid de variables $Bin(m,p)$.
+
+El Teorema anterior es un caso particular del
+próximo.
+
+__Teorema 6:__ Si $F$ es una distribución con $M_F$ finito o infinito que
+admite DEA, y $X$ tiene distribución $F$, entonces el
+limite cuando $t$ tiende a $M_F$ por izquierda de
+
+\begin{equation}
+P(X>t)/P(X \leq t)
+\end{equation}
+
+debe ser 1.
+
+__Observación 13.__ Si $F$ es una distribución de
+Poisson de parámetro $\lambda >0$, $M_F$ es infinito. Si $k$ es un
+natural, entonces
+
+\begin{align}
+P(X>t)/P(X \leq t)& = P(X \leq k+1)/P(X \leq k)\\
+& = 1-\left\{ P(X=k)/P(X \leq k) \right\} \approx 1-(1- \lambda/k)
+\end{align}
+
+que tiende a 0 cuando $k$ tiende a infinito, por lo
+cual $F$ NO admite DEA, o sea que no se puede aproximar el máximo de una sucesión iid de variables de Poisson.
+
+__Observación 14.__ El Teorema 6 brinda una
+condición NECESARIA pero NO SUFICIENTE
+para DEA. Un ejemplo de ello lo aportó Von Mises,
+mostrando que la distribución
+
+\begin{equation}
+F(x)= 1- e^{(-x-\sin(x))}
+\end{equation}
+
+cumple con la condicion del Teorema 6 pero no
+admite DEA. El tema será cerrado al estudiar los
+dominios de atracción maximal, en breve.
+
+Veamos ahora ejemplos donde la DEA resulta
+aplicable y que ratifican algunos hechos que
+anticipáramos.
+
+__Observación 15.__  Si $F$ es $U(0,1)$ y consideramos
+$X_1,...,X_n$ iid con distribución $F$, resulta que
+la distribución de $n( X_n^{\ast} - 1)$ tiende a $\Psi_1$ por lo cual la distribución uniforme tiene DEA
+Weibull.
+
+__Observación 16.__ Si $F$ es Exponencial de
+parámetro 1 y consideramos $X_1,...,X_n$ iid con
+distribución $F$, se tiene que la distribución de $X_n^{\ast} - \log n$ tiende a $\Lambda$ por lo cual la distribución exponencial tiene DEA Gumbel.
+
+__Observación 17.__ Si $F$ es $N(0,1)$ y consideramos
+$X_1,...,X_n$ iid con distribución $F$, definimos la función continua y estrictamente decreciente (para $u>0$)
+
+\begin{equation}
+g(u)= \frac{e^{-u^2/4\pi}}{u}.
+\end{equation}
+
+Como $\lim_{u \to 0}\; g(u) \rightarrow \infty$ y $\lim_{u \to \infty}\; g(u) \rightarrow 0$,
+para todo natural $n$ existe un único valor $u_n$ tal que 
+
+\begin{equation}
+g(u_n)=\frac{1}{n}
+\end{equation}
+
+y resulta que $\frac{u_n}{\sqrt{2\pi} (X_n^{\ast}- u_n /\sqrt 2\pi)} \rightarrow \Lambda$, por lo cual la distribución normal tiene DEA Gumbel.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--
 
