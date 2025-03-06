@@ -169,6 +169,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.2" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#las-distribuciones-extremales"><i class="fa fa-check"></i><b>1.2</b> Las distribuciones extremales</a></li>
 <li class="chapter" data-level="1.3" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#distribución-extremal-asintótica"><i class="fa fa-check"></i><b>1.3</b> Distribución Extremal Asintótica</a></li>
 <li class="chapter" data-level="1.4" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#supremo-esencial-de-una-variable-aleatoria-o-distribución"><i class="fa fa-check"></i><b>1.4</b> Supremo esencial de una variable aleatoria o distribución</a></li>
+<li class="chapter" data-level="1.5" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#distribución-max-estables"><i class="fa fa-check"></i><b>1.5</b> Distribución max-estables</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>2</b> Un primer enfoque de datos no <span class="math inline">\(iid\)</span></a>
 <ul>
@@ -794,6 +795,113 @@ para todo natural <span class="math inline">\(n\)</span> existe un único valor 
 g(u_n)=\frac{1}{n}
 \end{equation}\]</span></p>
 <p>y resulta que <span class="math inline">\(\frac{u_n}{\sqrt{2\pi} (X_n^{\ast}- u_n /\sqrt 2\pi)} \rightarrow \Lambda\)</span>, por lo cual la distribución normal tiene DEA Gumbel.</p>
+<p><strong>Observación 18.</strong> Si <span class="math inline">\(F\)</span> es Cauchy standard que se expresa como <span class="math inline">\(C(0,1)\)</span>
+y consideramos <span class="math inline">\(X_1,...,X_n\)</span> iid con distribución <span class="math inline">\(F\)</span>, se tiene que
+la distribución de <span class="math inline">\(\pi X_n^{\ast}/n\)</span> tiende a <span class="math inline">\(F_1\)</span> por lo cual la distribución Cauchy tiene DEA Fréchet.</p>
+<p>Los ejemplos anteriores no son sorprendentes, en el sentido
+que aunque presentamos FTG en una versión simplificada,
+dicho teorema sugiere que cuando <span class="math inline">\(F\)</span> admite DEA, la
+distribución <span class="math inline">\(H\)</span> deberá ser una distribución extremal. De hecho
+FTG resulta de combinar dos teoremas, basadas en una nueva
+definición, la de distribución <strong>max-estable</strong>.</p>
+</div>
+<div id="distribución-max-estables" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Distribución max-estables<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#distribución-max-estables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Si dada <span class="math inline">\(F\)</span> distribución, <span class="math inline">\(X\)</span> con distribución <span class="math inline">\(F\)</span>, <span class="math inline">\(k\)</span> natural
+arbitrario y <span class="math inline">\(X_1,...,X_k\)</span> iid con distribución <span class="math inline">\(F\)</span>, existen
+reales <span class="math inline">\(a_k, b_k\)</span> tales que <span class="math inline">\(max(X_1,...,X_k)\)</span> tiene la misma
+distribución que <span class="math inline">\(a_k X+ b_k\)</span>, <span class="math inline">\(F\)</span> se dice max-estable.</p>
+<p>El Teorema FTG resulta de superponer los dos
+siguientes teoremas.</p>
+<p><strong>Teorema 7:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Si <span class="math inline">\(F\)</span> admite DEA <span class="math inline">\(H\)</span>, entonces <span class="math inline">\(H\)</span> es max-estable.</p></li>
+<li><p>Si <span class="math inline">\(H\)</span> es max-estable, es la DEA de sí misma.</p></li>
+</ol>
+<p><strong>Teorema 8:</strong></p>
+<p>Una distribución es max-estable si y solo si es extremal: Gumbel, Weibull, Fréchet.</p>
+<p>El Teorema 7 es bastante intuitivo y análogo a los
+teoremas de Lévy sobre distribuciones estables en
+aproximaciones asintóticas de las distribuciones de
+sumas. Para el Teorema 8 haremos enseguida un
+ejercicio sencillo que nos ayudará a hacerlo creíble.</p>
+<p>Luego precisaremos, para terminar con esta parte,
+cómo son las distribuciones que tienen por DEA
+cada uno de los tres tipos de distribuciones
+extremales. Para eso precisamos recordar algunas
+definiciones, como la siguiente.</p>
+<p><strong>Observación 19.</strong> Si <span class="math inline">\(F\)</span> y <span class="math inline">\(G\)</span> son dos distribuciones,
+tienen colas equivalentes si <span class="math inline">\(M_F=M_G\)</span> y cuando <span class="math inline">\(t\)</span>
+tiende a <span class="math inline">\(M_F\)</span> por izquierda, <span class="math inline">\((1-F(t))/(1-G(t))\)</span> tiende a
+un valor <span class="math inline">\(c&gt;0\)</span>.</p>
+<p>Recordando ahora cómo se calcula la distribución
+del máximo de dos variables independientes, es
+muy sencillo calcular la distribución del <span class="math inline">\(max\left\{ X,Y \right\}\)</span>,
+cuando <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes y cada una de
+ellas es una distribución extremal. Se tiene el
+siguiente resultado.</p>
+<p>Se tiene el siguiente resultado:</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(X\)</span></th>
+<th><span class="math inline">\(Y\)</span></th>
+<th><span class="math inline">\(max(X,Y)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <!--
 
 Siguiendo a @notas_curso

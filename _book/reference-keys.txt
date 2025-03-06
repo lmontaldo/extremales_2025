@@ -46,3 +46,4 @@ pages
 metadata-for-sharing
 eq:1
 eq:2
+distribución-max-estables

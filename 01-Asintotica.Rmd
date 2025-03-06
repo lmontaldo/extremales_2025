@@ -830,13 +830,86 @@ g(u_n)=\frac{1}{n}
 \end{equation}
 
 y resulta que $\frac{u_n}{\sqrt{2\pi} (X_n^{\ast}- u_n /\sqrt 2\pi)} \rightarrow \Lambda$, por lo cual la distribución normal tiene DEA Gumbel.
+
+
+__Observación 18.__ Si $F$ es Cauchy standard que se expresa como $C(0,1)$ 
+y consideramos $X_1,...,X_n$ iid con distribución $F$, se tiene que
+la distribución de $\pi X_n^{\ast}/n$ tiende a $F_1$ por lo cual la distribución Cauchy tiene DEA Fréchet.
+
+Los ejemplos anteriores no son sorprendentes, en el sentido
+que aunque presentamos FTG en una versión simplificada,
+dicho teorema sugiere que cuando $F$ admite DEA, la
+distribución $H$ deberá ser una distribución extremal. De hecho
+FTG resulta de combinar dos teoremas, basadas en una nueva
+definición, la de distribución __max-estable__.
  
+## Distribución max-estables
+
+Si dada $F$ distribución, $X$ con distribución $F$, $k$ natural
+arbitrario y $X_1,...,X_k$ iid con distribución $F$, existen
+reales $a_k, b_k$ tales que $max(X_1,...,X_k)$ tiene la misma
+distribución que $a_k X+ b_k$, $F$ se dice max-estable.
 
 
+El Teorema FTG resulta de superponer los dos
+siguientes teoremas.
+
+__Teorema 7:__
+
+a) Si $F$ admite DEA $H$, entonces $H$ es max-estable.
+
+b) Si $H$ es max-estable, es la DEA de sí misma.
+
+__Teorema 8:__
+
+Una distribución es max-estable si y solo si es extremal: Gumbel, Weibull, Fréchet.
+
+El Teorema 7 es bastante intuitivo y análogo a los
+teoremas de Lévy sobre distribuciones estables en
+aproximaciones asintóticas de las distribuciones de
+sumas. Para el Teorema 8 haremos enseguida un
+ejercicio sencillo que nos ayudará a hacerlo creíble.
+
+Luego precisaremos, para terminar con esta parte,
+cómo son las distribuciones que tienen por DEA
+cada uno de los tres tipos de distribuciones
+extremales. Para eso precisamos recordar algunas
+definiciones, como la siguiente.
+
+__Observación 19.__ Si $F$ y $G$ son dos distribuciones,
+tienen colas equivalentes si $M_F=M_G$ y cuando $t$
+tiende a $M_F$ por izquierda, $(1-F(t))/(1-G(t))$ tiende a
+un valor $c>0$.
+
+Recordando ahora cómo se calcula la distribución
+del máximo de dos variables independientes, es
+muy sencillo calcular la distribución del $max\left\{ X,Y \right\}$,
+cuando $X$ e $Y$ son independientes y cada una de
+ellas es una distribución extremal. Se tiene el
+siguiente resultado.
+
+Se tiene el siguiente resultado:
+
+| $X$ | $Y$| $max(X,Y)$ |
+|-------|-------|--------------|
+| \textcolor{red}{Weibull} | \textcolor{red}{Weibull} | \textcolor{red}{Weibull} |
+| \textcolor[rgb]{0.0,0.5,0.0}{Weibull} | \textcolor[rgb]{0.0,0.5,0.0}{Gumbel} | \textcolor[rgb]{0.0,0.5,0.0}{Cola equivalente Gumbel} |
+| \textcolor{blue}{Weibull} | \textcolor{blue}{Fréchet} | \textcolor{blue}{Fréchet} |
+| \textcolor[rgb]{0.0,0.5,0.0}{Gumbel} | \textcolor[rgb]{0.0,0.5,0.0}{Weibull} | \textcolor[rgb]{0.0,0.5,0.0}{Cola equivalente Gumbel} |
+| \textcolor{red}{Gumbel} | \textcolor{red}{Gumbel} | \textcolor{red}{Gumbel} |
+| \textcolor{blue}{Gumbel} | \textcolor{blue}{Fréchet} | \textcolor{blue}{Cola equivalente Fréchet} |
+| \textcolor{blue}{Fréchet} | \textcolor{blue}{Weibull} | \textcolor{blue}{Fréchet} |
+| \textcolor{blue}{Fréchet} | \textcolor{blue}{Gumbel} | \textcolor{blue}{Cola equivalente Fréchet} |
+| \textcolor{red}{Fréchet} | \textcolor{red}{Fréchet}| \textcolor{red}{Fréchet} |
 
 
+\textcolor{red}{\rule{1em}{1em} Las extremales son max-estables: tomar máximos de dos del mismo tipo queda en el mismo tipo.}
 
 
+\textcolor[rgb]{0.0,0.5,0.0}{\rule{1em}{1em} Gumbel es más pesada que Weibull. En la cola, que es lo que cuenta para máximos, prima Gumbel.}
+
+
+\textcolor{blue}{\rule{1em}{1em} Fréchet es más pesada que Gumbel y mucho más pesada que Weibull.}
 
 
 
