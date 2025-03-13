@@ -173,7 +173,6 @@ div.csl-indent {
 <li class="chapter" data-level="2.5" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#distribución-max-estables"><i class="fa fa-check"></i><b>2.5</b> Distribución max-estables</a>
 <ul>
 <li class="chapter" data-level="2.5.1" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#ejemplos-de-libro"><i class="fa fa-check"></i><b>2.5.1</b> Ejemplos de libro</a></li>
-<li class="chapter" data-level="2.5.2" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#finanzas"><i class="fa fa-check"></i><b>2.5.2</b> Finanzas</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>3</b> Un primer enfoque de datos no <span class="math inline">\(iid\)</span></a>
@@ -233,6 +232,14 @@ div.csl-indent {
 <h2><span class="header-section-number">3.2</span> Pruebas de raíz unitaria y tendencia<a href="cross.html#pruebas-de-raíz-unitaria-y-tendencia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="concepto-de-estacionariedad" class="section level3 hasAnchor" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Concepto de Estacionariedad<a href="cross.html#concepto-de-estacionariedad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="cross.html#cb1-1" tabindex="-1"></a><span class="fu">head</span>(portpirie)</span></code></pre></div>
+<pre><code>##   Year SeaLevel
+## 1 1923     4.03
+## 2 1924     3.83
+## 3 1925     3.65
+## 4 1926     3.88
+## 5 1927     4.01
+## 6 1928     4.08</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nice-fig2"></span>
 <img src="Extremales_files/figure-html/nice-fig2-1.png" alt="Niveles máximos anuales del nivel del mar registrados en Port Pirie, una localidad justo al norte de Adelaida, Australia del Sur, durante el período 1923-1987" width="80%" />
 <p class="caption">
@@ -244,9 +251,9 @@ Figura 3.1: Niveles máximos anuales del nivel del mar registrados en Port Pirie
 <div id="ejemplo-en-finanzas" class="section level4 hasAnchor" number="3.2.1.1">
 <h4><span class="header-section-number">3.2.1.1</span> Ejemplo en Finanzas<a href="cross.html#ejemplo-en-finanzas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Las técnicas de valores extremos han ganado popularidad en aplicaciones financieras. Esto no es sorprendente: la solvencia financiera de una inversión probablemente esté determinada por cambios extremos en las condiciones del mercado en lugar de cambios típicos. Sin embargo, la compleja estructura estocástica de los mercados financieros implica que la aplicación ingenua de técnicas de valores extremos puede ser engañosa (<span class="citation">Coles et al. (<a href="#ref-coles2001introduction">2001</a>)</span>).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="cross.html#cb1-1" tabindex="-1"></a><span class="fu">data</span>(dowjones)</span>
-<span id="cb1-2"><a href="cross.html#cb1-2" tabindex="-1"></a>dowjones<span class="sc">$</span>LogDiff <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(<span class="fu">log</span>(dowjones<span class="sc">$</span>Index)))</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="cross.html#cb2-1" tabindex="-1"></a><span class="fu">head</span>(dowjones)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="cross.html#cb3-1" tabindex="-1"></a><span class="fu">data</span>(dowjones)</span>
+<span id="cb3-2"><a href="cross.html#cb3-2" tabindex="-1"></a>dowjones<span class="sc">$</span>LogDiff <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(<span class="fu">log</span>(dowjones<span class="sc">$</span>Index)))</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="cross.html#cb4-1" tabindex="-1"></a><span class="fu">head</span>(dowjones)</span></code></pre></div>
 <pre><code>##                  Date   Index       LogDiff
 ## 1 1995-09-11 02:00:00 4704.94            NA
 ## 2 1995-09-12 02:00:00 4747.21  0.0089440565

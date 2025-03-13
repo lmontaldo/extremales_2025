@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.2.26)  13 MAR 2025 11:44
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.2.26)  13 MAR 2025 14:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -765,13 +765,13 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 6.99925pt on input line 4.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 4.
-)
+
+
+[3])
 \tf@toc=\write4
 \openout4 = `Extremales.toc'.
 
 
-
-[3]
 
 [4]
 Capítulo 1.
@@ -844,8 +844,8 @@ Overfull \hbox (257.51566pt too wide) has occurred while \output is active
 [12]
 
 [13]
-File: Extremales_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
-<use Extremales_files/figure-latex/unnamed-chunk-10-1.pdf>
+File: Extremales_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
+<use Extremales_files/figure-latex/unnamed-chunk-12-1.pdf>
 
 
 
@@ -879,10 +879,10 @@ Overfull \hbox (257.51566pt too wide) has occurred while \output is active
  []
 
 [16]
-File: Extremales_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
-<use Extremales_files/figure-latex/unnamed-chunk-16-1.pdf>
-File: Extremales_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
-<use Extremales_files/figure-latex/unnamed-chunk-17-1.pdf>
+File: Extremales_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file (type pdf)
+<use Extremales_files/figure-latex/unnamed-chunk-18-1.pdf>
+File: Extremales_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file (type pdf)
+<use Extremales_files/figure-latex/unnamed-chunk-19-1.pdf>
 
 
 [17]
@@ -913,6 +913,12 @@ Overfull \hbox (257.51566pt too wide) has occurred while \output is active
 
 [20]
 
+Package natbib Warning: Citation `ismev2020' on page 21 undefined on input line 1050.
+
+File: Extremales_files/figure-latex/nice-fig3-1.pdf Graphic file (type pdf)
+<use Extremales_files/figure-latex/nice-fig3-1.pdf>
+
+
 [21]
 
 
@@ -920,43 +926,35 @@ Overfull \hbox (257.51566pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 22 \TU/lmr/m/sl/10 CAPÍTULO 1.  LA TEORÍA ASINTÓTICA CLÁSICA, LAS DISTRIBUCIONES EXTREMALES Y SUS DOMINIOS DE ATRACCIÓN
  []
 
-[22
-
-]
+[22]
 Capítulo 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 24.88pt on input line 1048.
+(Font)              scaled to size 24.88pt on input line 1065.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 20.74pt on input line 1048.
+(Font)              scaled to size 20.74pt on input line 1065.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 17.28pt on input line 1048.
+(Font)              scaled to size 17.28pt on input line 1065.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 24.88228pt on input line 1048.
+(Font)              scaled to size 24.88228pt on input line 1065.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 20.7419pt on input line 1048.
+(Font)              scaled to size 20.7419pt on input line 1065.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 17.28157pt on input line 1048.
+(Font)              scaled to size 17.28157pt on input line 1065.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 24.87733pt on input line 1048.
+(Font)              scaled to size 24.87733pt on input line 1065.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 20.73778pt on input line 1048.
+(Font)              scaled to size 20.73778pt on input line 1065.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 17.27815pt on input line 1048.
-
-Overfull \hbox (16.05443pt too wide) in paragraph at lines 1067--1068
-[]\TU/lmr/m/n/10 To label an un-numbered heading, use: \TU/lmtt/m/n/10 # Hello world {-#nice-label}
- []
+(Font)              scaled to size 17.27815pt on input line 1065.
+File: Extremales_files/figure-latex/nice-fig2-1.pdf Graphic file (type pdf)
+<use Extremales_files/figure-latex/nice-fig2-1.pdf>
 
 
-Underfull \hbox (badness 2726) in paragraph at lines 1070--1071
-[]\TU/lmr/m/n/10 Next, reference the labeled heading anywhere in the text using
- []
+[23
 
-
-
-[23]
-File: Extremales_files/figure-latex/nice-fig-1.pdf Graphic file (type pdf)
-<use Extremales_files/figure-latex/nice-fig-1.pdf>
+]
+File: Extremales_files/figure-latex/nice-fig4-1.pdf Graphic file (type pdf)
+<use Extremales_files/figure-latex/nice-fig4-1.pdf>
 
 
 [24]
@@ -968,7 +966,7 @@ File: Extremales_files/figure-latex/nice-fig-1.pdf Graphic file (type pdf)
 ]
 Capítulo 3.
 
-Underfull \hbox (badness 3049) in paragraph at lines 1141--1142
+Underfull \hbox (badness 3049) in paragraph at lines 1140--1141
 []\TU/lmr/m/n/10 Add an unnumbered part: \TU/lmtt/m/n/10 # (PART\*) Act one {-} \TU/lmr/m/n/10 (followed by \TU/lmtt/m/n/10 # A
  []
 
@@ -991,23 +989,43 @@ Capítulo 5.
 
 
 [31]
+Overfull \hbox (16.05443pt too wide) in paragraph at lines 1203--1204
+[]\TU/lmr/m/n/10 To label an un-numbered heading, use: \TU/lmtt/m/n/10 # Hello world {-#nice-label}
+ []
 
-[32
+
+Underfull \hbox (badness 2726) in paragraph at lines 1206--1207
+[]\TU/lmr/m/n/10 Next, reference the labeled heading anywhere in the text using
+ []
+
+File: Extremales_files/figure-latex/nice-fig-1.pdf Graphic file (type pdf)
+<use Extremales_files/figure-latex/nice-fig-1.pdf>
+
+
+[32]
+
+[33]
+
+[34
 
 ]
 Capítulo 6.
 
-Underfull \hbox (badness 1137) in paragraph at lines 1193--1194
+Underfull \hbox (badness 1137) in paragraph at lines 1273--1274
 []\TU/lmr/m/n/10 HTML books can be published online, see: []$[][][][][] [] [] [] [][][][][][][][] [] [][][] [] [][][][][] []$
  []
 
 
 
-[33] (./Extremales.bbl
+[35] (./Extremales.bbl
 
-[34])
+[36])
 
-[35
+Package natbib Warning: There were undefined citations.
+
+
+
+[37
 
 ] (./Extremales.aux)
  ***********
@@ -1016,12 +1034,12 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 19488 strings out of 475846
- 362041 string characters out of 5773396
- 918359 words of memory out of 5000000
- 42139 multiletter control sequences out of 15000+600000
- 568251 words of font info for 117 fonts, out of 8000000 for 9000
+ 19539 strings out of 475846
+ 363974 string characters out of 5773396
+ 919100 words of memory out of 5000000
+ 42186 multiletter control sequences out of 15000+600000
+ 568259 words of font info for 118 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,9n,114p,547b,626s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,9n,114p,957b,626s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Extremales.pdf (35 pages).
+Output written on Extremales.pdf (37 pages).

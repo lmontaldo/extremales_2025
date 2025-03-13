@@ -13,9 +13,14 @@ data(portpirie)
 
 ### Concepto de Estacionariedad
 
+```{r}
+head(portpirie)
+```
+
+
 ```{r nice-fig2, echo=FALSE, fig.cap='Niveles máximos anuales del nivel del mar registrados en Port Pirie.', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Niveles máximos anuales del nivel del mar registrados en Port Pirie, una localidad justo al norte de Adelaida, Australia del Sur, durante el período 1923-1987'}
 
-plot(portpirie$Year, portpirie$SeaLevel,  xlab = "Year", ylab = "Sea Level (meters)", col="brown")
+plot(portpirie,  xlab = "Year", ylab = "Sea Level (meters)", col="brown")
 ```
 
 

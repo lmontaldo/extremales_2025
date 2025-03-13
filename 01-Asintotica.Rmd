@@ -945,30 +945,6 @@ plot(rain)
 
 Considerando la Figura \@ref(fig:nice-fig3), podemos definir un evento como extremo si supera un cierto nivel alto, quizás una precipitación diaria de $30\; mm$ en este caso. Entonces, los valores extremos son ahora aquellas observaciones que superan un cierto umbral alto (@coles2001introduction).
 
-### Finanzas
 
-Las técnicas de valores extremos han ganado popularidad en aplicaciones financieras. Esto no es sorprendente: la solvencia financiera de una inversión probablemente esté determinada por cambios extremos en las condiciones del mercado en lugar de cambios típicos. Sin embargo, la compleja estructura estocástica de los mercados financieros implica que la aplicación ingenua de técnicas de valores extremos puede ser engañosa.
-
-```{r include=FALSE}
-dowjones$LogDiff <- c(NA, diff(log(dowjones$Index)))
-```
-
-```{r include=FALSE}
-head(dowjones)
-```
-
-
-
-
-
-
-```{r nice-fig4,echo=FALSE, fig.cap='Panel izquierdo: precios de cierre diario del índice Dow Jones. Panel derecho: rendimientos diarios del índice Dow Jones (en logarítmos).', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Panel izquierdo: precios de cierre diario del índice Dow Jones.Panel derecho: rendimientos logarítmicos diarios del índice Dow Jones.'}
-par(mfrow = c(1,2))
-plot(x=dowjones$Date, y=dowjones$Index, type="l", col="blue", xlab="Date", ylab="Index")
-plot(x=dowjones$Date, y=dowjones$LogDiff, type="l", col="purple", xlab="Date", ylab="Index")
-```
-
-
-La Fig.\@ref(fig:nice-fig4) muestra los precios de cierre diario del índice Dow Jones durante un período de 5 años. Evidentemente, el nivel del proceso ha cambiado drásticamente a lo largo del período observado, y las cuestiones sobre los valores extremos del comportamiento diario quedan eclipsadas por la variación temporal a largo plazo en la serie. Varios estudios empíricos sobre series de este tipo han indicado que se puede obtener una aproximación a la estacionariedad tomando los logaritmos de los cocientes de observaciones sucesivas, lo que se conoce como los retornos logarítmicos diarios. La Fig. \@ref(fig:nice-fig4) sugiere una transformación razonablemente exitosa hacia la estacionariedad. El análisis de las propiedades de valores extremos de dichas series transformadas puede proporcionar a los analistas financieros información clave sobre el mercado.
 
   

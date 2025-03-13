@@ -441,7 +441,7 @@ cuenta el item a) de la Parte 3, es claramente falso
 para Fréchet.
 
 \textbf{Observación 7:} El item f) de la Parte 1 en
-conjunto con el Teorema 1 brinda fórmulas
+conjunto con el teorema \ref{thm:foo1} brinda fórmulas
 sencillas para simular computacionalmente
 distribuciones Weibull o Fréchet.
 
@@ -703,7 +703,7 @@ Dado que visualmente se aprecian valores muy apartados, se
 presume una distribución de colas pesadas y por
 ese motivo se intenta un ajuste a una Fréchet.
 
-\includegraphics{Extremales_files/figure-latex/unnamed-chunk-10-1.pdf}
+\includegraphics{Extremales_files/figure-latex/unnamed-chunk-12-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -820,9 +820,9 @@ ese motivo se intenta un ajuste a una Fréchet.
 ## X-squared = 4.3938, df = 4, p-value = 0.3553
 \end{verbatim}
 
-\includegraphics{Extremales_files/figure-latex/unnamed-chunk-16-1.pdf}
+\includegraphics{Extremales_files/figure-latex/unnamed-chunk-18-1.pdf}
 
-\includegraphics{Extremales_files/figure-latex/unnamed-chunk-17-1.pdf}
+\includegraphics{Extremales_files/figure-latex/unnamed-chunk-19-1.pdf}
 
 \textbf{Observación 10.} Una distribución \(H\) se dice degenerada si \(H(t)=0 \text{ ó } 1\) para todo valor de \(t\). Representan a variables que no son tales, si la distribución de \(X\) es degenerada, entonces \(X\) es una constante, y no tiene sentido
 hacer estadística sobre \(X\), por lo tanto sólo tienen
@@ -1045,92 +1045,91 @@ siguiente resultado.
 
 \textcolor{blue}{\rule{1em}{1em} Fréchet es más pesada que Gumbel y mucho más pesada que Weibull.}
 
-\chapter{\texorpdfstring{Un primer enfoque de datos no \(iid\)}{Un primer enfoque de datos no iid}}\label{cross}
+\subsection{Ejemplos de libro}\label{ejemplos-de-libro}
 
-Cross-references make it easier for your readers to find and link to elements in your book.
+Ejemplos de \citet{coles2001introduction} con el paquete \citet{ismev2020} :
 
-\section{Análisis de series temporales}\label{anuxe1lisis-de-series-temporales}
-
-There are two steps to cross-reference any heading:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Label the heading: \texttt{\#\ Hello\ world\ \{\#nice-label\}}.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Leave the label off if you like the automated heading generated based on your heading title: for example, \texttt{\#\ Hello\ world} = \texttt{\#\ Hello\ world\ \{\#hello-world\}}.
-  \item
-    To label an un-numbered heading, use: \texttt{\#\ Hello\ world\ \{-\#nice-label\}} or \texttt{\{\#\ Hello\ world\ .unnumbered\}}.
-  \end{itemize}
-\item
-  Next, reference the labeled heading anywhere in the text using \texttt{\textbackslash{}@ref(nice-label)}; for example, please see Chapter \ref{cross}.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    If you prefer text as the link instead of a numbered reference use: \hyperref[cross]{any text you want can go here}.
-  \end{itemize}
-\end{enumerate}
-
-\section{Pruebas de raíz unitaria y tendencia}\label{pruebas-de-rauxedz-unitaria-y-tendencia}
-
-Figures and tables \emph{with captions} can also be cross-referenced from elsewhere in your book using \texttt{\textbackslash{}@ref(fig:chunk-label)} and \texttt{\textbackslash{}@ref(tab:chunk-label)}, respectively.
-
-See Figure \ref{fig:nice-fig}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, .}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}
-\FunctionTok{plot}\NormalTok{(pressure, }\AttributeTok{type =} \StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{, }\AttributeTok{pch =} \DecValTok{19}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\subsubsection{POT}\label{pot}
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth,alt={Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases.}]{Extremales_files/figure-latex/nice-fig-1} 
+{\centering \includegraphics[width=0.8\linewidth,alt={Acumulaciones diarias de lluvia en una ubicación en el suroeste de Inglaterra registradas durante el período 1914-1962.}]{Extremales_files/figure-latex/nice-fig3-1} 
 
 }
 
-\caption{Here is a nice figure!}\label{fig:nice-fig}
+\caption{Acumulaciones diarias de lluvia en una ubicación en el suroeste de Inglaterra registradas durante el período 1914-1962.}\label{fig:nice-fig3}
 \end{figure}
 
-Don't miss Table \ref{tab:nice-tab}.
+Considerando la Figura \ref{fig:nice-fig3}, podemos definir un evento como extremo si supera un cierto nivel alto, quizás una precipitación diaria de \(30\; mm\) en este caso. Entonces, los valores extremos son ahora aquellas observaciones que superan un cierto umbral alto (\citet{coles2001introduction}).
+
+\chapter{\texorpdfstring{Un primer enfoque de datos no \(iid\)}{Un primer enfoque de datos no iid}}\label{cross}
+
+\section{Análisis de series temporales}\label{anuxe1lisis-de-series-temporales}
+
+\section{Pruebas de raíz unitaria y tendencia}\label{pruebas-de-rauxedz-unitaria-y-tendencia}
+
+\subsection{Concepto de Estacionariedad}\label{concepto-de-estacionariedad}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(}
-  \FunctionTok{head}\NormalTok{(pressure, }\DecValTok{10}\NormalTok{), }\AttributeTok{caption =} \StringTok{\textquotesingle{}Here is a nice table!\textquotesingle{}}\NormalTok{,}
-  \AttributeTok{booktabs =} \ConstantTok{TRUE}
-\NormalTok{)}
+\FunctionTok{head}\NormalTok{(portpirie)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{table}
+\begin{verbatim}
+## [1] 4.03 3.83 3.65 3.88 4.01 4.08
+\end{verbatim}
 
-\caption{\label{tab:nice-tab}Here is a nice table!}
-\centering
-\begin{tabular}[t]{rr}
-\toprule
-temperature & pressure\\
-\midrule
-0 & 0.0002\\
-20 & 0.0012\\
-40 & 0.0060\\
-60 & 0.0300\\
-80 & 0.0900\\
-\addlinespace
-100 & 0.2700\\
-120 & 0.7500\\
-140 & 1.8500\\
-160 & 4.2000\\
-180 & 8.8000\\
-\bottomrule
-\end{tabular}
-\end{table}
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth,alt={Niveles máximos anuales del nivel del mar registrados en Port Pirie, una localidad justo al norte de Adelaida, Australia del Sur, durante el período 1923-1987}]{Extremales_files/figure-latex/nice-fig2-1} 
+
+}
+
+\caption{Niveles máximos anuales del nivel del mar registrados en Port Pirie.}\label{fig:nice-fig2}
+\end{figure}
+
+La figura \ref{fig:nice-fig2} muestra los niveles máximos anuales del nivel del mar registrados en Port Pirie, una localidad justo al norte de Adelaida, Australia del Sur, durante el período 1923-1987. A partir de estos datos, puede ser necesario estimar el nivel máximo del mar que probablemente ocurra en la región en los próximos 100 o 1000 años. Esto plantea una cuestión importante: ¿cómo podemos estimar los niveles que pueden ocurrir en los próximos 1000 años sin conocer, por ejemplo, los cambios climáticos que podrían suceder?
+
+No hay evidencia contundente en la figura que sugiera que el patrón de variación en los niveles del mar haya cambiado durante el período de observación, pero dicha estabilidad podría no persistir en el futuro. Esta advertencia es crucial: aunque la teoría de valores extremos ha adoptado terminología como el ``nivel de retorno a 1000 años'', que corresponde al nivel que se espera que sea excedido exactamente una vez en los próximos 1000 años, esto solo tiene sentido bajo el supuesto de estabilidad (o estacionariedad) en el proceso subyacente. Es más realista hablar en términos de niveles que, bajo las condiciones actuales, ocurrirán en un año determinado con una baja probabilidad (\citet{coles2001introduction}).
+
+\subsubsection{Ejemplo en Finanzas}\label{ejemplo-en-finanzas}
+
+Las técnicas de valores extremos han ganado popularidad en aplicaciones financieras. Esto no es sorprendente: la solvencia financiera de una inversión probablemente esté determinada por cambios extremos en las condiciones del mercado en lugar de cambios típicos. Sin embargo, la compleja estructura estocástica de los mercados financieros implica que la aplicación ingenua de técnicas de valores extremos puede ser engañosa (\citet{coles2001introduction}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(dowjones)}
+\NormalTok{dowjones}\SpecialCharTok{$}\NormalTok{LogDiff }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\FunctionTok{diff}\NormalTok{(}\FunctionTok{log}\NormalTok{(dowjones}\SpecialCharTok{$}\NormalTok{Index)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(dowjones)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                  Date   Index       LogDiff
+## 1 1995-09-11 02:00:00 4704.94            NA
+## 2 1995-09-12 02:00:00 4747.21  0.0089440565
+## 3 1995-09-13 02:00:00 4765.52  0.0038495832
+## 4 1995-09-14 02:00:00 4801.80  0.0075841874
+## 5 1995-09-15 02:00:00 4797.57 -0.0008813079
+## 6 1995-09-18 02:00:00 4780.41 -0.0035832228
+\end{verbatim}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth,alt={Panel izquierdo: precios de cierre diario del índice Dow Jones.Panel derecho: rendimientos logarítmicos diarios del índice Dow Jones.}]{Extremales_files/figure-latex/nice-fig4-1} 
+
+}
+
+\caption{Panel a) Precios de cierre diario del índice Dow Jones. Panel b) Rendimientos diarios del índice Dow Jones (en logarítmos).}\label{fig:nice-fig4}
+\end{figure}
+
+La Fig.\ref{fig:nice-fig4} muestra los precios de cierre diario del índice Dow Jones durante un período de 5 años. Evidentemente, el nivel del proceso ha cambiado drásticamente a lo largo del período observado, y las cuestiones sobre los valores extremos del comportamiento diario quedan eclipsadas por la variación temporal a largo plazo en la serie. Varios estudios empíricos sobre series de este tipo han indicado que se puede obtener una aproximación a la estacionariedad tomando los logaritmos de los cocientes de observaciones sucesivas, lo que se conoce como los retornos logarítmicos diarios. El panel b) de la Fig. \ref{fig:nice-fig4} sugiere una transformación razonablemente exitosa hacia la estacionariedad. El análisis de las propiedades de valores extremos de dichas series transformadas puede proporcionar a los analistas financieros información clave sobre el mercado (\citet{coles2001introduction}).
 
 \chapter{Parts}\label{parts}
 
@@ -1185,6 +1184,87 @@ Read more here \url{https://bookdown.org/yihui/bookdown/markdown-extensions-by-b
 \section{Callout blocks}\label{callout-blocks}
 
 The R Markdown Cookbook provides more help on how to use custom blocks to design your own callouts: \url{https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html}
+
+\section{Referencias cruzadas}\label{referencias-cruzadas}
+
+There are two steps to cross-reference any heading:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Label the heading: \texttt{\#\ Hello\ world\ \{\#nice-label\}}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Leave the label off if you like the automated heading generated based on your heading title: for example, \texttt{\#\ Hello\ world} = \texttt{\#\ Hello\ world\ \{\#hello-world\}}.
+  \item
+    To label an un-numbered heading, use: \texttt{\#\ Hello\ world\ \{-\#nice-label\}} or \texttt{\{\#\ Hello\ world\ .unnumbered\}}.
+  \end{itemize}
+\item
+  Next, reference the labeled heading anywhere in the text using \texttt{\textbackslash{}@ref(nice-label)}; for example, please see Chapter \ref{cross}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    If you prefer text as the link instead of a numbered reference use: \hyperref[cross]{any text you want can go here}.
+  \end{itemize}
+\end{enumerate}
+
+Figures and tables \emph{with captions} can also be cross-referenced from elsewhere in your book using \texttt{\textbackslash{}@ref(fig:chunk-label)} and \texttt{\textbackslash{}@ref(tab:chunk-label)}, respectively.
+
+See Figure \ref{fig:nice-fig}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, .}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(pressure, }\AttributeTok{type =} \StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{, }\AttributeTok{pch =} \DecValTok{19}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth,alt={Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases.}]{Extremales_files/figure-latex/nice-fig-1} 
+
+}
+
+\caption{Here is a nice figure!}\label{fig:nice-fig}
+\end{figure}
+
+Don't miss Table \ref{tab:nice-tab}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(}
+  \FunctionTok{head}\NormalTok{(pressure, }\DecValTok{10}\NormalTok{), }\AttributeTok{caption =} \StringTok{\textquotesingle{}Here is a nice table!\textquotesingle{}}\NormalTok{,}
+  \AttributeTok{booktabs =} \ConstantTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:nice-tab}Here is a nice table!}
+\centering
+\begin{tabular}[t]{rr}
+\toprule
+temperature & pressure\\
+\midrule
+0 & 0.0002\\
+20 & 0.0012\\
+40 & 0.0060\\
+60 & 0.0300\\
+80 & 0.0900\\
+\addlinespace
+100 & 0.2700\\
+120 & 0.7500\\
+140 & 1.8500\\
+160 & 4.2000\\
+180 & 8.8000\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \chapter{Sharing your book}\label{sharing-your-book}
 
