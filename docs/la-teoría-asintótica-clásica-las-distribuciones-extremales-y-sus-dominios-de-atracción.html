@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="es" xml:lang="es">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 La teoría asintótica clásica, las distribuciones extremales y sus dominios de atracción | Datos Extremales (2025)</title>
+  <meta name="description" content="Capítulo 2 La teoría asintótica clásica, las distribuciones extremales y sus dominios de atracción | Datos Extremales (2025)" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 La teoría asintótica clásica, las distribuciones extremales y sus dominios de atracción | Datos Extremales (2025)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="lmontaldo/extremales_2025" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 La teoría asintótica clásica, las distribuciones extremales y sus dominios de atracción | Datos Extremales (2025)" />
+  
+  
+  
+
+<meta name="author" content="MEDIA" />
+
+
+<meta name="date" content="2025-03-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="cross.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística para datos extremales</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a></li>
+<li class="chapter" data-level="2" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><i class="fa fa-check"></i><b>2</b> La teoría asintótica clásica, las distribuciones extremales y sus dominios de atracción</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#datos-extremos"><i class="fa fa-check"></i><b>2.1</b> Datos extremos</a></li>
+<li class="chapter" data-level="2.2" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#las-distribuciones-extremales"><i class="fa fa-check"></i><b>2.2</b> Las distribuciones extremales</a></li>
+<li class="chapter" data-level="2.3" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#distribución-extremal-asintótica"><i class="fa fa-check"></i><b>2.3</b> Distribución Extremal Asintótica</a></li>
+<li class="chapter" data-level="2.4" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#supremo-esencial-de-una-variable-aleatoria-o-distribución"><i class="fa fa-check"></i><b>2.4</b> Supremo esencial de una variable aleatoria o distribución</a></li>
+<li class="chapter" data-level="2.5" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#distribución-max-estables"><i class="fa fa-check"></i><b>2.5</b> Distribución max-estables</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#ejemplos-de-libro"><i class="fa fa-check"></i><b>2.5.1</b> Ejemplos de libro</a></li>
+<li class="chapter" data-level="2.5.2" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#finanzas"><i class="fa fa-check"></i><b>2.5.2</b> Finanzas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>3</b> Un primer enfoque de datos no <span class="math inline">\(iid\)</span></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="cross.html"><a href="cross.html#análisis-de-series-temporales"><i class="fa fa-check"></i><b>3.1</b> Análisis de series temporales</a></li>
+<li class="chapter" data-level="3.2" data-path="cross.html"><a href="cross.html#pruebas-de-raíz-unitaria-y-tendencia"><i class="fa fa-check"></i><b>3.2</b> Pruebas de raíz unitaria y tendencia</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="cross.html"><a href="cross.html#estacionariedad"><i class="fa fa-check"></i><b>3.2.1</b> Estacionariedad</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
+<li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
+<li class="chapter" data-level="5.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
+<li class="chapter" data-level="6.4" data-path="blocks.html"><a href="blocks.html#referencias-cruzadas"><i class="fa fa-check"></i><b>6.4</b> Referencias cruzadas</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
+<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
+<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Datos Extremales (2025)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Capítulo 2</span> La teoría asintótica clásica, las distribuciones extremales y sus dominios de atracción<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!-- 
+{.unlisted .unnumbered}. 
+para sacar la numeracion a la seccion
+-->
+<div id="datos-extremos" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Datos extremos<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#datos-extremos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Se dice que tenemos <em>datos extremos</em> cuando cada
+dato corresponde al máximo o mínimo de varios
+registros. Ejemplos de este tipo de datos son:</p>
+<ul>
+<li>La máxima altura semanal de la ola en una
+plataforma marina o portuaria <span class="math inline">\((m)\)</span>.</li>
+<li>La máxima velocidad de viento en determinada
+dirección a lo largo de un mes <span class="math inline">\((km/h)\)</span>.</li>
+<li>La temperatura ambiental mínima a lo largo de
+un día <span class="math inline">\((\dot{C})\)</span>.</li>
+<li>La temperatura ambiental mínima a lo largo de
+un día (<span class="math inline">\(\dot{C}\)</span>)</li>
+<li>La máxima velocidad de tráfico en un enlace de
+una red de datos de datos en una hora (<span class="math inline">\(Mb/s\)</span>).</li>
+<li>El mayor registro en un conteo de Coliformes
+fecales sobre agua costeras al cabo de quince días.</li>
+</ul>
+<p>Son un caso particular de evento raro o gran
+desviación respecto a la media.
+En resumen, en una gran variedad de dominios
+disciplinares suele ser de gran interés el trabajo
+con datos extremos, los que admiten diversos
+enfoques. Entre ellos, los propios al párrafo
+anterior (eventos raros, grandes desviaciones), que
+se verán en el curso.
+Sin embargo, el comienzo del curso se centra en la
+teoría más clásica de estadística de datos extremos,
+basada en el trabajo de Fréchet, Gumbel, Weibull,
+Fisher, Tippett, Gnedenko, entre otros.</p>
+<p><strong>Observación 1:</strong> Se recuerda que si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son variables aleatorias independientes, cuyas
+distribuciones son, respectivamente, <span class="math inline">\(F\)</span> y <span class="math inline">\(G\)</span>,
+entonces la variable</p>
+<p><span class="math display" id="eq:1">\[\begin{equation}
+\max \left( X,Y \right)
+\tag{2.1}
+\end{equation}\]</span></p>
+<p>tiene por distribución la función <span class="math inline">\(H\)</span> definida por</p>
+<p><span class="math display" id="eq:2">\[\begin{equation}
+H(t)= F(t)\; G(t)
+\tag{2.2}
+\end{equation}\]</span></p>
+<p><strong>Observación 2:</strong> En esta parte inicial del curso
+asumiremos que nuestros datos son <span class="math inline">\(iid\)</span>
+(independientes e idénticamente distribuidos, son
+dos suposiciones juntas). Esta doble suposición
+suele NO ser realista en aplicaciones concretas
+(ninguna de sus dos componentes, incluso) pero
+para comenzar a entender la teoría clásica, la
+utilizaremos por un tiempo.</p>
+<p><strong>Observación 3:</strong> Resulta claramente de la
+Observación 1, que si tenemos datos <span class="math inline">\(X_1,...,X_n\)</span> <span class="math inline">\(iid\)</span> con distribución <span class="math inline">\(F\)</span>, entonces</p>
+<p><span class="math display">\[\begin{equation}
+X_n^{\ast}= \max \left( X_1,...,X_n \right)
+\end{equation}\]</span></p>
+<p>tiene distribución <span class="math inline">\(F_n^\ast\)</span> dada por</p>
+<p><span class="math display">\[\begin{equation}
+F_n^\ast (t) = F(t)^n
+\end{equation}\]</span></p>
+<p>Si conocemos la distribución <span class="math inline">\(F\)</span> conoceríamos la
+distribución <span class="math inline">\(F_n^\ast\)</span>, pero en algunos casos la lectura
+que queda registrada es la del dato máximo y no la
+de cada observación que dio lugar al mismo, por lo
+que a veces ni siquiera es viable estimar <span class="math inline">\(F\)</span>.
+Pero aún en los casos en que <span class="math inline">\(F\)</span> es conocida o
+estimable, si <span class="math inline">\(n\)</span> es grande, la fórmula de <span class="math inline">\(F_n^\ast\)</span> puede resultar prácticamente inmanejable. En una línea de trabajo similar a la que aporta el <em>Teorema
+Central del Límite</em> en la estadística de valores
+medios, un teorema nos va a permitir aproximar
+<span class="math inline">\(F_n^\ast\)</span> por distribuciones más sencillas. Este es el
+<em>Teorema de Fischer-Tippet-Gnedenko</em> (FTG) que presentaremos en breve.</p>
+<p><strong>Observación 4:</strong> Si <span class="math inline">\(X_1,...,X_n\;\)</span> es <span class="math inline">\(iid\;\)</span> y definimos
+<span class="math inline">\(\;Y_i = -X_i\;\)</span> para todo valor de <span class="math inline">\(i\)</span>, entonces <span class="math inline">\(Y_1,...,Y_n\;\)</span> es <span class="math inline">\(iid\;\)</span> y además</p>
+<p><span class="math display">\[\begin{equation}
+min(X_1,...,X_n) = - max(Y_1,...,Y_n)
+\end{equation}\]</span></p>
+<p>la teoría asintótica de los mínimos de datos <span class="math inline">\(iid\)</span>
+se reduce a la de los máximos, razón por la que
+nos concentramos aquí en estudiar el
+comportamiento asintótico de los <strong>máximos</strong>
+exclusivamente.</p>
+</div>
+<div id="las-distribuciones-extremales" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Las distribuciones extremales<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#las-distribuciones-extremales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Las distribuciones extremales son tres: la
+<em>distribución de Gumbel</em>, la <em>distribución de Weibull</em> y
+la <em>distribución de Fréchet</em>. En su versión <em>standard</em> o <em>típica</em> se definen del modo
+siguiente.</p>
+<p>Se dice que una variable tiene distribución de:</p>
+<p>-<strong>Gumbel</strong> si su distribución es</p>
+<p><span class="math display">\[\Lambda(x) = e^{\{-e^{-x}\}}\hspace{0.3cm}\text{ para todo }\: x \;\text{real}.\]</span></p>
+<p>-<strong>Weibull</strong> de orden <span class="math inline">\(\alpha&gt;0\)</span> si su distribución es</p>
+<p><span class="math display">\[\Psi_{\alpha}(x)=\begin{cases}
+e^{\left\{-(-x)^{\alpha}  \right\}} &amp; si\;x&lt;0\\
+1 &amp; \text{en otro caso}
+\end{cases}\]</span></p>
+<p>-<strong>Fréchet</strong> de orden <span class="math inline">\(\alpha&gt;0\)</span> si su distribución es</p>
+<p><span class="math display">\[
+\Phi_{\alpha}(x)=\begin{cases}
+e^{\left\{ -x^{-\alpha}\right\}} &amp; si\;x&gt;0\\
+0 &amp; \text{en otro caso}
+\end{cases}
+\]</span>
+<strong>Nota:</strong> Como los máximos en general son valores grandes,
+importa particularmente observar el comportamiento de estas distribuciones para <span class="math inline">\(x\)</span> tendiendo a infinito. El límite es <span class="math inline">\(1\)</span> como en toda distribución. Pero <em>VA MAS RAPIDO</em> a 1 la Weibull, luego la Gumbel y luego la Fréchet. Esto es indicio que la
+Fréchet modela datos <em>más extremos</em>, máximos de datos de
+colas más pesadas que la Gumbel y ésta que la Weibull. Más
+adelante veremos esto más precisamente. En la Fréchet, la
+velocidad de convergencia a 1 crece al aumentar el orden. En cambio en la Weibull el orden afecta la velocidad con que va a 0 cuando <span class="math inline">\(x\)</span> tiende a menos infinito, que crece cuanto mayor el orden. Esto quedará más claro con el Teorema 1 del curso. La visualización de las densidades de cada tipo quizás ayude a comprender mejor los pesos relativos de las colas.</p>
+<p><img src="Extremales_files/figure-html/plot-extreme-distributions-1.png" width="576" /></p>
+<p>A estas versiones standard se las puede extender
+agregando un parámetro de recentramiento <span class="math inline">\((\mu)\)</span> y
+un parámetro de escala <span class="math inline">\((\beta)\)</span>.</p>
+<p>Se dice que <span class="math inline">\(X\)</span> tiene distribución:</p>
+<ul>
+<li><p><strong>Gumbel</strong> : <span class="math inline">\(\Lambda^{(\mu, \beta)}\)</span> si <span class="math inline">\(\;X=\mu + \beta Y\;\)</span>, donde <span class="math inline">\(Y\)</span> tiene distribución <span class="math inline">\(\Lambda\)</span>.</p></li>
+<li><p><strong>Weibull</strong>: <span class="math inline">\(\;\Psi^{(\mu, \beta)}\;\)</span> si <span class="math inline">\(\;X=\mu + \beta Y\;\)</span>, donde <span class="math inline">\(Y\)</span> tiene distribución <span class="math inline">\(\Psi_{\alpha}\)</span>.</p></li>
+<li><p><strong>Fréchet</strong>: <span class="math inline">\(\;\Phi^{(\mu, \beta)}\;\)</span> si <span class="math inline">\(X=\mu + \beta Y\)</span>, donde <span class="math inline">\(Y\)</span> tiene distribución <span class="math inline">\(\Phi_{\alpha}\)</span>.</p></li>
+</ul>
+<p>En general, es en este sentido que diremos que una
+variable es Gumbel, Weibull o Fréchet (incluyendo
+recentramiento y reescalamiento), pero en cálculos
+donde los parámetros <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\beta\)</span> no sean relevantes, por
+simplicidad, usaremos las versiones standard.</p>
+<p>El siguiente teorema vincula las distribuciones
+extremales en sus formatos standard y resulta de
+gran utilidad práctica sobre todo al hacer tests de
+ajustes, etc.</p>
+<div class="theorem">
+<p><span id="thm:foo1" class="theorem"><strong>Teorema 2.1  (Relaciones entre las versiones standard de las distribuciones extremales) </strong></span><span class="math inline">\(X\)</span> tiene distribución <span class="math inline">\(\Phi_{\alpha}\)</span> <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\((-1/X)\)</span> tiene distribución <span class="math inline">\(\Psi_{\alpha}\)</span> <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\log(X^{\alpha})\)</span> tiene distribución <span class="math inline">\(\Lambda\)</span>.</p>
+</div>
+<p>Nota: en otros contextos de la Estadística (en particular en
+alguna rutinas del R), se le llama Weibull a una variable que
+corresponde a -X, con X Weibull como definimos nosotros.</p>
+<p><strong>Observación 5:</strong> Recordamos que la función
+Gamma (<span class="math inline">\(\Gamma\)</span> ), que extiende a la función factorial
+(<span class="math inline">\(\Gamma(n)=n-1!\quad \forall n\)</span> natural) definida por</p>
+<p><span class="math display">\[\begin{equation}
+\Gamma(x)=\int_{0}^{\infty} t^{u-1}e^{-t}dt
+\end{equation}\]</span></p>
+<p>es una función disponible tanto en el software R
+como en planillas de cálculo, etc.</p>
+<div class="theorem">
+<p><span id="thm:foo2" class="theorem"><strong>Teorema 2.2  (Algunos datos de las distribuciones extremales) </strong></span>Tres partes:</p>
+<p><strong>Parte 1</strong></p>
+<p>Si <span class="math inline">\(X\)</span> tiene distribución <span class="math inline">\(\Lambda^{(\mu,\beta)}\)</span> entonces tiene:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><strong>Esperanza</strong>: <span class="math inline">\(E(X) = \mu + \beta\gamma\)</span>, donde <span class="math inline">\(\gamma\)</span> es la constante de Euler-Mascheroni, cuyo valor aproximado es <span class="math inline">\(0.5772156649\)</span>.</p></li>
+<li><p><strong>Moda</strong>: <span class="math inline">\(\text{moda}(X)=\mu\)</span></p></li>
+<li><p><strong>Mediana</strong>: <span class="math inline">\(\text{med}(X)=\mu - \beta \log(\log 2) \approx \mu - 0.36651 \beta\)</span></p></li>
+<li><p><strong>Desviación estándar</strong>: <span class="math inline">\(\sigma(X)=\frac{\beta \pi}{\sqrt{6}}   \approx 1.2825 \beta\)</span></p></li>
+<li><p>Si <span class="math inline">\(X^+ = \max(X,0)\)</span>, entonces <span class="math inline">\(E(X+k)\)</span> es finito para todo valor de <span class="math inline">\(k\)</span> natural</p></li>
+<li><p>Para simular computacionalmente <span class="math inline">\(X\)</span>, se puede tomar <span class="math inline">\(U\)</span> uniforme en <span class="math inline">\((0,1)\)</span> y hacer <span class="math inline">\(X = \mu - \beta \log(-\log U)\)</span>.</p></li>
+</ol>
+<p><strong>Parte 2</strong></p>
+<p>Si <span class="math inline">\(X\)</span> tiene distribución <span class="math inline">\(\Psi^{(\mu, \beta)}\)</span> entonces tiene:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(E(X)=\mu -\beta \Gamma (1+1/\alpha)\)</span></p></li>
+<li><p><span class="math display">\[\begin{equation*}\text{moda}(X) =\begin{cases}
+  \mu  &amp; \text{si }\; \alpha \leq 1 \\
+\mu-\beta\left\{ \frac{\left( \alpha-1 \right)}{\alpha} \right\}^{1/\alpha} &amp; \text{si }\; \alpha &gt;1
+\end{cases}\end{equation*}\]</span></p></li>
+<li><p><span class="math inline">\(\text{med}(X)=\mu - \beta (\log 2)^{\frac{1}{\alpha}}\)</span></p></li>
+<li><p><span class="math inline">\(\sigma(X)=\beta\left\{\Gamma\left( 1+\frac{2}{\alpha} \right)-\Gamma\left( 1+\frac{1}{\alpha} \right)^2  \right\}^{1/2}\)</span>.</p></li>
+</ol>
+<p><strong>Parte 3</strong></p>
+<p>Si <span class="math inline">\(X\)</span> tiene distribución <span class="math inline">\(\Phi_{\alpha}^{(\mu, \beta)}\)</span> entonces tiene:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math display">\[\begin{equation*}
+E(x) =
+\begin{cases}
+\mu + \beta\;\Gamma\left( 1-\frac{1}{\alpha} \right) &amp; \text{si } \alpha&gt;1 \\
+\infty &amp; \text{en otro caso}
+\end{cases}
+\end{equation*}\]</span></p></li>
+<li><p><span class="math inline">\(\text{moda}(X)=\mu+ \beta\;\left\{ \frac{\alpha}{\left( 1+ \alpha\right)}\right\}^{1/\alpha}\)</span></p></li>
+<li><p><span class="math inline">\(\text{med}(X)=\mu + \beta \;\left( \log 2 \right)^{\left( -1/\alpha \right)}\)</span></p></li>
+<li><p><span class="math display">\[\begin{equation*}
+\sigma(x) =
+\begin{cases}
+\mu + \left| \Gamma \left( 1 - \frac{2}{\alpha} \right) - \Gamma \left(  1 - \frac{1}{\alpha}\right)\right|  &amp; \text{si } \; \alpha&gt;2 \\
+\infty &amp; \text{si } \; 1&lt;\alpha \leq 2
+\end{cases}
+\end{equation*}\]</span></p></li>
+</ol>
+</div>
+<p><strong>Observación 6:</strong> El item e) de la Parte 1 es
+trivialmente cierto para Weibull y tomando en
+cuenta el item a) de la Parte 3, es claramente falso
+para Fréchet.</p>
+<p><strong>Observación 7:</strong> El item f) de la Parte 1 en
+conjunto con el teorema <a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#thm:foo1">2.1</a> brinda fórmulas
+sencillas para simular computacionalmente
+distribuciones Weibull o Fréchet.</p>
+<p><strong>Observación 8:</strong> Se generaron mil números aleatorios y aplicando el
+item f) de la Parte 1: se simularon mil variables
+Gumbel standard <span class="math inline">\(iid\)</span>, calculándose su promedio, su
+desviación standard empírica y su mediana
+empírica.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-1" tabindex="-1"></a><span class="co"># Fijar semilla para reproducibilidad</span></span>
+<span id="cb1-2"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1-3"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-4" tabindex="-1"></a><span class="co"># Definir parámetros</span></span>
+<span id="cb1-5"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-5" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">0</span>       <span class="co"># Centro</span></span>
+<span id="cb1-6"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-6" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="dv">1</span>     <span class="co"># Escala</span></span>
+<span id="cb1-7"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-7" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="fl">0.5772156649</span>  <span class="co"># Constante de Euler-Mascheroni</span></span>
+<span id="cb1-8"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-9" tabindex="-1"></a><span class="co"># Número de simulaciones</span></span>
+<span id="cb1-10"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-10" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb1-11"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-11" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-12" tabindex="-1"></a><span class="co"># Generar 1000 valores de una variable uniforme en (0,1)</span></span>
+<span id="cb1-13"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-13" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">runif</span>(n)</span>
+<span id="cb1-14"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-14" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-15" tabindex="-1"></a><span class="co"># Simular la variable Gumbel con parámetros (mu, beta)</span></span>
+<span id="cb1-16"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-16" tabindex="-1"></a>X_gumbel <span class="ot">&lt;-</span> mu <span class="sc">-</span> beta <span class="sc">*</span> <span class="fu">log</span>(<span class="sc">-</span><span class="fu">log</span>(U))</span>
+<span id="cb1-17"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-17" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-18" tabindex="-1"></a><span class="co"># Calcular estadísticas</span></span>
+<span id="cb1-19"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-19" tabindex="-1"></a>esperanza <span class="ot">&lt;-</span> mu <span class="sc">+</span> beta <span class="sc">*</span> gamma</span>
+<span id="cb1-20"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-20" tabindex="-1"></a>moda <span class="ot">&lt;-</span> mu</span>
+<span id="cb1-21"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-21" tabindex="-1"></a>mediana_teorica <span class="ot">&lt;-</span> mu <span class="sc">-</span> beta <span class="sc">*</span> <span class="fu">log</span>(<span class="fu">log</span>(<span class="dv">2</span>))</span>
+<span id="cb1-22"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-22" tabindex="-1"></a>desviacion_std_teorica <span class="ot">&lt;-</span> beta <span class="sc">*</span> pi <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">6</span>)</span>
+<span id="cb1-23"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-23" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-24" tabindex="-1"></a><span class="co"># Calcular estadísticas empíricas</span></span>
+<span id="cb1-25"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-25" tabindex="-1"></a>promedio_empirico <span class="ot">&lt;-</span> <span class="fu">mean</span>(X_gumbel)</span>
+<span id="cb1-26"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-26" tabindex="-1"></a>desviacion_std_empirica <span class="ot">&lt;-</span> <span class="fu">sd</span>(X_gumbel)</span>
+<span id="cb1-27"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb1-27" tabindex="-1"></a>mediana_empirica <span class="ot">&lt;-</span> <span class="fu">median</span>(X_gumbel)</span></code></pre></div>
+<p>Los resultados fueron los siguientes:</p>
+<pre><code>## ----- Resultados teóricos: -----</code></pre>
+<pre><code>## Esperanza teórica: 0.5772157</code></pre>
+<pre><code>## Moda teórica: 0</code></pre>
+<pre><code>## Mediana teórica: 0.3665129</code></pre>
+<pre><code>## Desviación estándar teórica: 1.28255</code></pre>
+<pre><code>## ----- Resultados empíricos (simulación con n = 1000 ): -----</code></pre>
+<pre><code>## Promedio empírico: 0.5610296</code></pre>
+<pre><code>## Desviación estándar empírica: 1.261928</code></pre>
+<pre><code>## Mediana empírica: 0.3376409</code></pre>
+<p>Observar que los resultados empíricos están cerca del valor esperado, desvío standard y mediana de la Gumbel standard.</p>
+<p>A continuación presentaremos el Teorema medular de esta primera parte, expresado de la manera más llana posible. Veremos posteriormente algunos detalles con más cuidado. En particular, veremos que la continuidad de la distribución <span class="math inline">\(F\)</span> no
+es una hipótesis real (ni es necesaria ni es suficiente, por eso la
+entrecomillamos), pero ayuda a visualizar que no vale el teorema para toda distribución <span class="math inline">\(F\)</span>, así como veremos con cierto detalle más adelante…</p>
+<p><strong>Teorema 3: de Fischer-Tippet-Gnedenko (FTG)</strong></p>
+<p>Si <span class="math inline">\(X_1,...,X_n\)</span> es <span class="math inline">\(iid\)</span> con distribución <span class="math inline">\(F\)</span> ‘continua’,
+llamamos <span class="math inline">\(F^{\ast}_n\)</span> a la distribución de <span class="math inline">\(max(X_1,...,X_n)\)</span> y <span class="math inline">\(n\)</span>
+es grande, entonces existen <span class="math inline">\(\mu\)</span> real y <span class="math inline">\(\beta &gt; 0\)</span> tales que
+alguna de las siguientes tres afirmaciones es
+correcta:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(F^{\ast}_n\)</span> se puede aproximar por la distribución
+de <span class="math inline">\(\mu+\beta Y\)</span>, con <span class="math inline">\(Y\)</span> variable con distribución <span class="math inline">\(\Lambda\)</span>.</li>
+<li>Existe <span class="math inline">\(\alpha&gt;0\)</span> tal que <span class="math inline">\(F_n^{\ast}\)</span> se puede aproximar por la distribución de <span class="math inline">\(\mu+\beta Y\)</span> con <span class="math inline">\(Y\)</span> variable con distribución <span class="math inline">\(\Phi_{\alpha}\)</span>.</li>
+<li>Existe <span class="math inline">\(\alpha&gt;0\)</span> tal que <span class="math inline">\(F_n^{\ast}\)</span> se puede aproximar por la distribución de <span class="math inline">\(\mu+\beta Y\)</span> con <span class="math inline">\(Y\)</span> variable con distribución <span class="math inline">\(\Phi_{\alpha}\)</span>.</li>
+</ol>
+<p>Lo anterior equivale a decir que la distribución del máximo de datos <em>continuos</em> e <span class="math inline">\(iid\)</span>, si <span class="math inline">\(n\)</span> es grande, puede aproximarse por una Gumbel, una Fréchet o una Weibull.</p>
+<p><strong>Observación 9:</strong> Como veremos con cierto detalle, cuál de las tres aproximaciones es la válida depende de cómo sea la distribución <span class="math inline">\(F\)</span>.</p>
+<p>Por ejemplo, veremos que:</p>
+<ul>
+<li>Si <span class="math inline">\(F\)</span> es normal o exponencial, se aplica a <span class="math inline">\(F_n^{\ast}\)</span> la aproximación por una Gumbel .</li>
+<li>Si <span class="math inline">\(F\)</span> es uniforme, vale para <span class="math inline">\(F_n^{\ast}\)</span> la aproximación por una Weibull.</li>
+<li>Si <span class="math inline">\(F\)</span> es Cauchy, la aproximación válida para <span class="math inline">\(F_n^{\ast}\)</span> es por una Fréchet.</li>
+</ul>
+<p>Más precisamente, cuál de las tres aproximaciones es la aplicable depende de la cola de <span class="math inline">\(F\)</span><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<p>En concreto, Weibull aparece cuando <span class="math inline">\(F\)</span> es la
+distribución de una variable acotada por arriba
+(como la Uniforme), Gumbel para distribuciones
+de variables no acotadas por arriba pero con colas muy livianas (caso Exponencial y Normal) y Fréchet para colas pesadas (caso Cauchy).
+Finalmente, si bien aclaramos que la hipótesis de continuidad de <span class="math inline">\(F\)</span> no es esencial, veremos que si <span class="math inline">\(F\)</span> es la distribución Binomial o Poisson, por mencionar
+dos ejemplos muy conocidos y sencillos, NO se
+puede aplicar ninguna de las tres aproximaciones
+anteriores.</p>
+<p><strong>Observación 10.</strong> Como consecuencia del <span class="math inline">\(FTG\)</span> si se tienen datos de máximos, las distribuciones extremales son “candidatas” razonables para proponer en un ajuste.
+Sin embargo no debe pensarse que siempre se va a lograr ajustar a una de las tres distribuciones extremales, ya que hay al menos dos causas evidentes que podrían desbaratar la aplicación del FTG:</p>
+<ol style="list-style-type: decimal">
+<li><p>Que la cantidad de registros que se consideran al
+calcular cada máximo no sea suficientemente
+grande.</p></li>
+<li><p>Que los registros que se consideran al calcular cada máximo no sean <span class="math inline">\(iid\)</span><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p></li>
+</ol>
+<p>Por consiguiente el <span class="math inline">\(FTG\)</span> alienta a intentar ajustar datos
+extremales a una de las tres distribuciones extremales, pero no
+siempre un tal ajuste dará un resultado afirmativo.</p>
+<!--- EJEMPLO DEL LIBRO A REVEER -->
+<p><strong>Ejemplo 1.</strong> Veamos un ejemplo de ajuste. Los
+siguientes datos corresponden a los valores, en <span class="math inline">\(80\)</span> puntos geográficos distintos de la región parisina, del máximo estival del contaminante atmosférico <span class="math inline">\(O_3\)</span> (no perceptible sensorialmente y con impacto
+sanitario serio). Cada dato es el máximo registro en cada sensor a lo largo de todo un verano; el contaminante se mide diariamente, por lo cual, cada uno de nuestros <span class="math inline">\(80\)</span> datos es el máximo de unas <span class="math inline">\(100\)</span> lecturas diarias.</p>
+<pre><code>## [1] &quot;Primeros 6 datos:&quot;</code></pre>
+<pre><code>##      X_i
+## 1 430.30
+## 2 115.70
+## 3   4.48
+## 4  26.95
+## 5  72.27
+## 6 206.40</code></pre>
+<p>Los valores se miden en unidades de referencia
+standarizadas que, en particular, permiten
+comparar las medidas de lugares diferentes,
+independientemente de variables relevantes como
+altura e incidencia solar, por trabajo previo de
+calibración.</p>
+<p>El objetivo del estudio en esta etapa es conocer la
+distribución de estos datos y en particular estimar
+la probabilidad de que el máximo estival en los 80
+puntos supere el valor 50 (correspondiente a
+existencia de riesgo moderado).</p>
+<p>Veamos los datos que tenemos:</p>
+<pre><code>## [1] &quot;Cálculo de estadísticos básicos&quot;</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    4.48   23.44   52.77  183.93  166.82 1675.00</code></pre>
+<p>Como la mayoría de tests de ajustes suponen datos
+<span class="math inline">\(iid\)</span>, realizaremos dos tests de aleatoriedad<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>:</p>
+<ul>
+<li>Runs test (Up &amp; Down)</li>
+<li>Spearman correlation of ranks</li>
+</ul>
+<p>Para realizar el ajuste utilizaremos el test <span class="math inline">\(\chi^2\)</span> de
+ajuste<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.
+Este test requiere elegir una partición más o
+menos arbitraria de la recta real en intervalos; sin
+embargo es importante que en cada intervalo caiga
+una cantidad suficiente de datos de la muestra; en
+este caso hemos tomado como extremos de los
+intervalos los quintiles empíricos de nuestra
+muestra.</p>
+<p>Una aclaración mucho más importante es
+que este test requiere estimar parámetros por el
+método de Máxima Verosimilitud Categórica, que da
+resultado distintos al método de Máxima
+Verosimilitud a secas<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
+<pre><code>## Warning: package &#39;tseries&#39; was built under R version 4.3.3</code></pre>
+<pre><code>## Registered S3 method overwritten by &#39;quantmod&#39;:
+##   method            from
+##   as.zoo.data.frame zoo</code></pre>
+<pre><code>## 
+##  Runs Test
+## 
+## data:  as.factor(runs_sequence)
+## Standard Normal = 2.4678, p-value = 0.01359
+## alternative hypothesis: two.sided</code></pre>
+<pre><code>## 
+##  Spearman&#39;s rank correlation rho
+## 
+## data:  data$X_i and seq_along(data$X_i)
+## S = 85949, p-value = 0.9483
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##          rho 
+## -0.007372289</code></pre>
+<!--El p-valor en runs up and down es 0,868 y en
+Spearman es 0,474.-->
+<p>Como cada dato de los 80 que disponemos es un
+máximo de un centenar de observaciones,
+intentaremos ajustarlos a una distribución
+extremal sabiendo que no necesariamente
+tendremos éxito.</p>
+<p>Observemos en particular que lo
+que pasamos por dos tests de aleatoriedad son los
+80 máximos, pero no el centenar de lecturas que
+forman cada uno de los 80 máximos (ni siquiera
+tenemos esos datos originales).</p>
+<p>Dado que visualmente se aprecian valores muy apartados, se
+presume una distribución de colas pesadas y por
+ese motivo se intenta un ajuste a una Fréchet.</p>
+<p><img src="Extremales_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<!--
+El test de ajuste $\chi^2$ da un $p-$valor de 0,467 para
+una Fréchet de α=1.04, μ= -6.5, β=44.
+-->
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb19-1" tabindex="-1"></a><span class="co"># Parámetros del libro</span></span>
+<span id="cb19-2"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb19-2" tabindex="-1"></a>loc_libro <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">6.5</span>    <span class="co"># μ</span></span>
+<span id="cb19-3"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb19-3" tabindex="-1"></a>scale_libro <span class="ot">&lt;-</span> <span class="dv">44</span>     <span class="co"># β</span></span>
+<span id="cb19-4"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb19-4" tabindex="-1"></a>shape_libro <span class="ot">&lt;-</span> <span class="fl">1.04</span>   <span class="co"># α (parámetro de forma positivo, Fréchet)</span></span>
+<span id="cb19-5"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb19-5" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb19-6" tabindex="-1"></a><span class="co"># Cálculo de la probabilidad de exceder el valor 50</span></span>
+<span id="cb19-7"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb19-7" tabindex="-1"></a>prob_excede_50 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pgev</span>(<span class="dv">50</span>, <span class="at">loc =</span> loc_libro, <span class="at">scale =</span> scale_libro, <span class="at">shape =</span> shape_libro)</span>
+<span id="cb19-8"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb19-8" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb19-9" tabindex="-1"></a><span class="co"># Mostrar la probabilidad de excedencia</span></span>
+<span id="cb19-10"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb19-10" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Probabilidad de excedencia del nivel 50:&quot;</span>, <span class="fu">round</span>(prob_excede_50, <span class="dv">4</span>)))</span></code></pre></div>
+<pre><code>## [1] &quot;Probabilidad de excedencia del nivel 50: 0.3575&quot;</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb21-1" tabindex="-1"></a><span class="co"># Proporción empírica de excedencia del nivel 50</span></span>
+<span id="cb21-2"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb21-2" tabindex="-1"></a>prop_empirica <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>X_i <span class="sc">&gt;</span> <span class="dv">50</span>)</span>
+<span id="cb21-3"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb21-3" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Proporción empírica de excedencia del nivel 50:&quot;</span>, <span class="fu">round</span>(prop_empirica, <span class="dv">4</span>)))</span></code></pre></div>
+<pre><code>## [1] &quot;Proporción empírica de excedencia del nivel 50: 0.5125&quot;</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb23-1" tabindex="-1"></a><span class="co"># Intervalo de confianza para la proporción empírica</span></span>
+<span id="cb23-2"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb23-2" tabindex="-1"></a>prop_ci <span class="ot">&lt;-</span> <span class="fu">prop.test</span>(<span class="fu">sum</span>(data<span class="sc">$</span>X_i <span class="sc">&gt;</span> <span class="dv">50</span>), <span class="fu">length</span>(data<span class="sc">$</span>X_i))<span class="sc">$</span>conf.int</span>
+<span id="cb23-3"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb23-3" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Intervalo de confianza al 95%:&quot;</span>, <span class="fu">round</span>(prop_ci[<span class="dv">1</span>], <span class="dv">3</span>), <span class="st">&quot;-&quot;</span>, <span class="fu">round</span>(prop_ci[<span class="dv">2</span>], <span class="dv">3</span>)))</span></code></pre></div>
+<pre><code>## [1] &quot;Intervalo de confianza al 95%: 0.399 - 0.625&quot;</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb25-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Probabilidad de excedencia del nivel 50:&quot;</span>, <span class="fu">round</span>(prob_excede_50, <span class="dv">4</span>)))</span></code></pre></div>
+<pre><code>## [1] &quot;Probabilidad de excedencia del nivel 50: 0.3575&quot;</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb27-1" tabindex="-1"></a><span class="co"># Parámetros del libro</span></span>
+<span id="cb27-2"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb27-2" tabindex="-1"></a>loc_libro <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">6.5</span>    <span class="co"># μ</span></span>
+<span id="cb27-3"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb27-3" tabindex="-1"></a>scale_libro <span class="ot">&lt;-</span> <span class="dv">44</span>     <span class="co"># β</span></span>
+<span id="cb27-4"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb27-4" tabindex="-1"></a>shape_libro <span class="ot">&lt;-</span> <span class="fl">1.04</span>   <span class="co"># α (parámetro de forma positivo, Fréchet)</span></span>
+<span id="cb27-5"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb27-5" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb27-6" tabindex="-1"></a><span class="co"># Cálculo de la probabilidad de exceder el valor 50</span></span>
+<span id="cb27-7"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb27-7" tabindex="-1"></a>prob_excede_50 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pgev</span>(<span class="dv">50</span>, <span class="at">loc =</span> loc_libro, <span class="at">scale =</span> scale_libro, <span class="at">shape =</span> shape_libro)</span>
+<span id="cb27-8"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb27-8" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Probabilidad de excedencia del nivel 50:&quot;</span>, <span class="fu">round</span>(prob_excede_50, <span class="dv">4</span>)))</span></code></pre></div>
+<pre><code>## [1] &quot;Probabilidad de excedencia del nivel 50: 0.3575&quot;</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-1" tabindex="-1"></a><span class="co"># Parámetros del libro</span></span>
+<span id="cb29-2"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-2" tabindex="-1"></a>loc_libro <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">6.5</span>    <span class="co"># μ</span></span>
+<span id="cb29-3"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-3" tabindex="-1"></a>scale_libro <span class="ot">&lt;-</span> <span class="dv">44</span>     <span class="co"># β</span></span>
+<span id="cb29-4"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-4" tabindex="-1"></a>shape_libro <span class="ot">&lt;-</span> <span class="fl">1.04</span>   <span class="co"># α (parámetro de forma positivo, Fréchet)</span></span>
+<span id="cb29-5"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-5" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-6" tabindex="-1"></a><span class="co"># Definir intervalos usando los quintiles empíricos</span></span>
+<span id="cb29-7"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-7" tabindex="-1"></a>breaks <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data<span class="sc">$</span>X_i, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length.out =</span> <span class="dv">6</span>))  <span class="co"># 5 intervalos</span></span>
+<span id="cb29-8"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-8" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-9" tabindex="-1"></a><span class="co"># Calcular las frecuencias observadas en cada intervalo</span></span>
+<span id="cb29-10"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-10" tabindex="-1"></a>observed_counts <span class="ot">&lt;-</span> <span class="fu">hist</span>(data<span class="sc">$</span>X_i, <span class="at">breaks =</span> breaks, <span class="at">plot =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>counts</span>
+<span id="cb29-11"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-11" tabindex="-1"></a></span>
+<span id="cb29-12"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-12" tabindex="-1"></a><span class="co"># Calcular las probabilidades teóricas en cada intervalo usando la distribución Fréchet ajustada</span></span>
+<span id="cb29-13"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-13" tabindex="-1"></a>probs <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">pgev</span>(breaks, <span class="at">loc =</span> loc_libro, <span class="at">scale =</span> scale_libro, <span class="at">shape =</span> shape_libro))</span>
+<span id="cb29-14"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-14" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-15" tabindex="-1"></a><span class="co"># Convertir probabilidades en frecuencias esperadas</span></span>
+<span id="cb29-16"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-16" tabindex="-1"></a>expected_counts <span class="ot">&lt;-</span> probs <span class="sc">*</span> <span class="fu">length</span>(data<span class="sc">$</span>X_i)</span>
+<span id="cb29-17"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-17" tabindex="-1"></a></span>
+<span id="cb29-18"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-18" tabindex="-1"></a><span class="co"># Realizar el test de ajuste Chi-cuadrado</span></span>
+<span id="cb29-19"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-19" tabindex="-1"></a>chi_sq_test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(observed_counts, <span class="at">p =</span> probs, <span class="at">rescale.p =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-20"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-20" tabindex="-1"></a></span>
+<span id="cb29-21"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-21" tabindex="-1"></a><span class="co"># Mostrar los resultados del test</span></span>
+<span id="cb29-22"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb29-22" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Resultados del test Chi-cuadrado con los parámetros del libro:&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Resultados del test Chi-cuadrado con los parámetros del libro:&quot;</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#cb31-1" tabindex="-1"></a><span class="fu">print</span>(chi_sq_test)</span></code></pre></div>
+<pre><code>## 
+##  Chi-squared test for given probabilities
+## 
+## data:  observed_counts
+## X-squared = 4.3938, df = 4, p-value = 0.3553</code></pre>
+<p><img src="Extremales_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<!-- Análisis del Q-Q Plot
+
+- Sección Inicial (Cuantiles Bajos): En los valores bajos, los puntos se alinean bien con la diagonal roja, indicando un buen ajuste en la parte central de la distribución.
+Colas Extremas:
+
+- Para los valores más extremos, se observan desviaciones importantes de la diagonal, especialmente en los cuantiles más altos.
+Esto sugiere que la distribución Fréchet ajustada podría no estar capturando completamente la cola extrema de los datos observados.
+-->
+<p><img src="Extremales_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<!-- Análisis del Histograma con Densidad Ajustada (Fréchet)
+
+- Ajuste General:La curva de densidad Fréchet (línea roja) sigue la tendencia general del histograma.
+Sin embargo, la altura de la primera barra es significativamente mayor que la densidad esperada, lo que sugiere una mayor concentración de valores pequeños.
+
+- Colas Pesadas: La distribución Fréchet modela bien las colas pesadas, aunque podría estar subestimando la frecuencia en las colas extremas.
+
+------------------------
+
+Conclusión: 
+- El test de ajuste $\chi^2$ mostró un p-valor aceptable (0.3553), lo cual apoya la hipótesis de un buen ajuste.
+
+Sin embargo, las visualizaciones gráficas indican que:
+
+- Hay una sobreestimación de la densidad en la parte inicial (valores bajos).
+- Hay una subestimación de la probabilidad de los valores extremadamente altos.
+
+Entonces, podría ser beneficioso:
+
+Probar otras distribuciones de colas pesadas, como Weibull o Pareto Generalizada (GPD).
+Realizar un análisis de valores extremos específicamente en la cola superior.
+
+
+------- ESTA ES LA CCL DE GONZA, COMO HIZO EL EJ? ------
+
+Conclusión del libro a reveer ejercicio porque no tengo los calculos: 
+Adoptando pues este modelo, un sencillo cálculo
+muestra que la probabilidad de que el máximo
+exceda 50 es 0.455, lo cual es absolutamente
+consistente con lo observado en la muestra, donde
+la proporción empírica de excedencia del nivel 50
+es 0.5125 con un intervalo de confianza al 95%
+para esta proporción de (0.403, 0.622). Se llega a la conclusión que hay una incidencia
+muy seria de niveles moderados de riesgo (se
+prevee que cerca de la mitad de los puntos estén
+afectados). 
+<!--- FIN EJEMPLO DEL LIBRO A REVEER -->
+<p><strong>Observación 10.</strong> Una distribución <span class="math inline">\(H\)</span> se dice degenerada si <span class="math inline">\(H(t)=0 \text{ ó } 1\)</span> para todo valor de <span class="math inline">\(t\)</span>. Representan a variables que no son tales, si la distribución de <span class="math inline">\(X\)</span> es degenerada, entonces <span class="math inline">\(X\)</span> es una constante, y no tiene sentido
+hacer estadística sobre <span class="math inline">\(X\)</span>, por lo tanto sólo tienen
+interés para nosotros las distribuciones no-degeneradas.</p>
+</div>
+<div id="distribución-extremal-asintótica" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Distribución Extremal Asintótica<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#distribución-extremal-asintótica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Si <span class="math inline">\(X_1,...,X_n\)</span> es iid con distribución <span class="math inline">\(F\)</span> diremos que <span class="math inline">\(H\)</span> no-degenerada es la Distribución Extremal Asintótica
+(DEA) de <span class="math inline">\(F\)</span><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>, si existen dos sucesiones de números reales, <span class="math inline">\(d_n\)</span> y <span class="math inline">\(c_n&gt;0\)</span>, tales que la distribución de
+<span class="math display">\[\begin{equation}
+\frac{max(X_1,...,X_n)- d_n}{c_n}\;\text{ tiende a } H \text{ cuando } n \text{ tiende a infinito.}
+\end{equation}\]</span></p>
+</div>
+<div id="supremo-esencial-de-una-variable-aleatoria-o-distribución" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Supremo esencial de una variable aleatoria o distribución<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#supremo-esencial-de-una-variable-aleatoria-o-distribución" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Si <span class="math inline">\(X\)</span> tiene distribución <span class="math inline">\(F\)</span>,
+se llama <span class="math inline">\(M_X\)</span> al supremo esencial de <span class="math inline">\(X\)</span> o,
+indistintamente, supremo esencial de <span class="math inline">\(F\)</span> (denotado
+<span class="math inline">\(M_F\)</span>) a</p>
+<p><span class="math display">\[\begin{equation}
+M_X = M_F = \sup\{t \; / \; F(t) &lt; 1\}
+\end{equation}\]</span></p>
+<p><strong>Observación 11.</strong></p>
+<ul>
+<li>Si <span class="math inline">\(F\)</span> es <span class="math inline">\(U(a,b)\)</span>, <span class="math inline">\(M_F=b\)</span>.</li>
+<li>Si <span class="math inline">\(F\)</span> es <span class="math inline">\(Bin(m,p)\)</span>, <span class="math inline">\(M_F=m\)</span>.</li>
+<li>Si <span class="math inline">\(F\)</span> es Normal, Exponencial, Cauchy o Poisson entonces <span class="math inline">\(M_F\)</span> es infinito.</li>
+</ul>
+<p><strong>Teorema 4:</strong> Si <span class="math inline">\(X_1,...,X_n\)</span> iid con distribución <span class="math inline">\(F\)</span> cualquiera, entonces, para <span class="math inline">\(n \rightarrow \infty\)</span>,</p>
+<p><span class="math display">\[\begin{equation}
+X_n^{\ast} =max(X_1,...,X_n) \rightarrow M_F
+\end{equation}\]</span></p>
+<p><strong>Observación 12.</strong> El resultado anterior vale
+incluso si <span class="math inline">\(M_F\)</span> es infinito, pero si <span class="math inline">\(M_F\)</span> es finito, como
+<span class="math inline">\(Xn* - Mf\)</span> tiende a cero, por analogía con el Teorema
+Central del Límite para promedios, buscaríamos
+una sucesión <span class="math inline">\(c_n&gt;0\)</span> y que tienda a cero de modo tal
+que <span class="math inline">\((X_n^{\ast}- M_F )/ c_n\)</span> tienda a una distribución no-
+degenerada y de allí surge buscar la DEA.</p>
+<p><strong>Teorema 5:</strong> Si <span class="math inline">\(F\)</span> es una distribución con <span class="math inline">\(M_F\)</span> finito, y para <span class="math inline">\(X\)</span> con distribución <span class="math inline">\(F\)</span> se cumple que
+<span class="math display">\[\begin{equation}
+P(X=M_F)&gt;0
+\end{equation}\]</span>
+entonces <span class="math inline">\(F\)</span> no admite DEA.</p>
+<p><strong>Observación 13.</strong> Si <span class="math inline">\(F\)</span> es <span class="math inline">\(Bin(m,p) \Rightarrow M_F=m\)</span>. Si <span class="math inline">\(X\)</span>
+tiene distribución <span class="math inline">\(F\)</span>, entonces
+<span class="math inline">\(P( X=M_F)= P( X=m)= p^m&gt;0\)</span>,
+asi que la distribucion <span class="math inline">\(Bin(m,p)\)</span> NO admite DEA,
+no se puede aproximar la distribución del máximo
+de una muestra iid de variables <span class="math inline">\(Bin(m,p)\)</span>.</p>
+<p>El Teorema anterior es un caso particular del
+próximo.</p>
+<p><strong>Teorema 6:</strong> Si <span class="math inline">\(F\)</span> es una distribución con <span class="math inline">\(M_F\)</span> finito o infinito que
+admite DEA, y <span class="math inline">\(X\)</span> tiene distribución <span class="math inline">\(F\)</span>, entonces el
+limite cuando <span class="math inline">\(t\)</span> tiende a <span class="math inline">\(M_F\)</span> por izquierda de</p>
+<p><span class="math display">\[\begin{equation}
+P(X&gt;t)/P(X \leq t)
+\end{equation}\]</span></p>
+<p>debe ser 1.</p>
+<p><strong>Observación 13.</strong> Si <span class="math inline">\(F\)</span> es una distribución de
+Poisson de parámetro <span class="math inline">\(\lambda &gt;0\)</span>, <span class="math inline">\(M_F\)</span> es infinito. Si <span class="math inline">\(k\)</span> es un
+natural, entonces</p>
+<p><span class="math display">\[\begin{align}
+P(X&gt;t)/P(X \leq t)&amp; = P(X \leq k+1)/P(X \leq k)\\
+&amp; = 1-\left\{ P(X=k)/P(X \leq k) \right\} \approx 1-(1- \lambda/k)
+\end{align}\]</span></p>
+<p>que tiende a 0 cuando <span class="math inline">\(k\)</span> tiende a infinito, por lo
+cual <span class="math inline">\(F\)</span> NO admite DEA, o sea que no se puede aproximar el máximo de una sucesión iid de variables de Poisson.</p>
+<p><strong>Observación 14.</strong> El Teorema 6 brinda una
+condición NECESARIA pero NO SUFICIENTE
+para DEA. Un ejemplo de ello lo aportó Von Mises,
+mostrando que la distribución</p>
+<p><span class="math display">\[\begin{equation}
+F(x)= 1- e^{(-x-\sin(x))}
+\end{equation}\]</span></p>
+<p>cumple con la condicion del Teorema 6 pero no
+admite DEA. El tema será cerrado al estudiar los
+dominios de atracción maximal, en breve.</p>
+<p>Veamos ahora ejemplos donde la DEA resulta
+aplicable y que ratifican algunos hechos que
+anticipáramos.</p>
+<p><strong>Observación 15.</strong> Si <span class="math inline">\(F\)</span> es <span class="math inline">\(U(0,1)\)</span> y consideramos
+<span class="math inline">\(X_1,...,X_n\)</span> iid con distribución <span class="math inline">\(F\)</span>, resulta que
+la distribución de <span class="math inline">\(n( X_n^{\ast} - 1)\)</span> tiende a <span class="math inline">\(\Psi_1\)</span> por lo cual la distribución uniforme tiene DEA
+Weibull.</p>
+<p><strong>Observación 16.</strong> Si <span class="math inline">\(F\)</span> es Exponencial de
+parámetro 1 y consideramos <span class="math inline">\(X_1,...,X_n\)</span> iid con
+distribución <span class="math inline">\(F\)</span>, se tiene que la distribución de <span class="math inline">\(X_n^{\ast} - \log n\)</span> tiende a <span class="math inline">\(\Lambda\)</span> por lo cual la distribución exponencial tiene DEA Gumbel.</p>
+<p><strong>Observación 17.</strong> Si <span class="math inline">\(F\)</span> es <span class="math inline">\(N(0,1)\)</span> y consideramos
+<span class="math inline">\(X_1,...,X_n\)</span> iid con distribución <span class="math inline">\(F\)</span>, definimos la función continua y estrictamente decreciente (para <span class="math inline">\(u&gt;0\)</span>)</p>
+<p><span class="math display">\[\begin{equation}
+g(u)= \frac{e^{-u^2/4\pi}}{u}.
+\end{equation}\]</span></p>
+<p>Como <span class="math inline">\(\lim_{u \to 0}\; g(u) \rightarrow \infty\)</span> y <span class="math inline">\(\lim_{u \to \infty}\; g(u) \rightarrow 0\)</span>,
+para todo natural <span class="math inline">\(n\)</span> existe un único valor <span class="math inline">\(u_n\)</span> tal que</p>
+<p><span class="math display">\[\begin{equation}
+g(u_n)=\frac{1}{n}
+\end{equation}\]</span></p>
+<p>y resulta que <span class="math inline">\(\frac{u_n}{\sqrt{2\pi} (X_n^{\ast}- u_n /\sqrt 2\pi)} \rightarrow \Lambda\)</span>, por lo cual la distribución normal tiene DEA Gumbel.</p>
+<p><strong>Observación 18.</strong> Si <span class="math inline">\(F\)</span> es Cauchy standard que se expresa como <span class="math inline">\(C(0,1)\)</span>
+y consideramos <span class="math inline">\(X_1,...,X_n\)</span> iid con distribución <span class="math inline">\(F\)</span>, se tiene que
+la distribución de <span class="math inline">\(\pi X_n^{\ast}/n\)</span> tiende a <span class="math inline">\(F_1\)</span> por lo cual la distribución Cauchy tiene DEA Fréchet.</p>
+<p>Los ejemplos anteriores no son sorprendentes, en el sentido
+que aunque presentamos FTG en una versión simplificada,
+dicho teorema sugiere que cuando <span class="math inline">\(F\)</span> admite DEA, la
+distribución <span class="math inline">\(H\)</span> deberá ser una distribución extremal. De hecho
+FTG resulta de combinar dos teoremas, basadas en una nueva
+definición, la de distribución <strong>max-estable</strong>.</p>
+</div>
+<div id="distribución-max-estables" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Distribución max-estables<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#distribución-max-estables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Si dada <span class="math inline">\(F\)</span> distribución, <span class="math inline">\(X\)</span> con distribución <span class="math inline">\(F\)</span>, <span class="math inline">\(k\)</span> natural
+arbitrario y <span class="math inline">\(X_1,...,X_k\)</span> iid con distribución <span class="math inline">\(F\)</span>, existen
+reales <span class="math inline">\(a_k, b_k\)</span> tales que <span class="math inline">\(max(X_1,...,X_k)\)</span> tiene la misma
+distribución que <span class="math inline">\(a_k X+ b_k\)</span>, <span class="math inline">\(F\)</span> se dice max-estable.</p>
+<p>El Teorema FTG resulta de superponer los dos
+siguientes teoremas.</p>
+<p><strong>Teorema 7:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Si <span class="math inline">\(F\)</span> admite DEA <span class="math inline">\(H\)</span>, entonces <span class="math inline">\(H\)</span> es max-estable.</p></li>
+<li><p>Si <span class="math inline">\(H\)</span> es max-estable, es la DEA de sí misma.</p></li>
+</ol>
+<p><strong>Teorema 8:</strong></p>
+<p>Una distribución es max-estable si y solo si es extremal: Gumbel, Weibull, Fréchet.</p>
+<p>El Teorema 7 es bastante intuitivo y análogo a los
+teoremas de Lévy sobre distribuciones estables en
+aproximaciones asintóticas de las distribuciones de
+sumas. Para el Teorema 8 haremos enseguida un
+ejercicio sencillo que nos ayudará a hacerlo creíble.</p>
+<p>Luego precisaremos, para terminar con esta parte,
+cómo son las distribuciones que tienen por DEA
+cada uno de los tres tipos de distribuciones
+extremales. Para eso precisamos recordar algunas
+definiciones, como la siguiente.</p>
+<p><strong>Observación 19.</strong> Si <span class="math inline">\(F\)</span> y <span class="math inline">\(G\)</span> son dos distribuciones,
+tienen colas equivalentes si <span class="math inline">\(M_F=M_G\)</span> y cuando <span class="math inline">\(t\)</span>
+tiende a <span class="math inline">\(M_F\)</span> por izquierda, <span class="math inline">\((1-F(t))/(1-G(t))\)</span> tiende a
+un valor <span class="math inline">\(c&gt;0\)</span>.</p>
+<p>Recordando ahora cómo se calcula la distribución
+del máximo de dos variables independientes, es
+muy sencillo calcular la distribución del <span class="math inline">\(max\left\{ X,Y \right\}\)</span>,
+cuando <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes y cada una de
+ellas es una distribución extremal. Se tiene el
+siguiente resultado.</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(X\)</span></th>
+<th><span class="math inline">\(Y\)</span></th>
+<th><span class="math inline">\(max(X,Y)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="ejemplos-de-libro" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Ejemplos de libro<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#ejemplos-de-libro" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ejemplos de <span class="citation">Coles et al. (<a href="#ref-coles2001introduction">2001</a>)</span> con el paquete <span class="citation">Janet E. Heffernan with R port y Alec G. Stephenson. (<a href="#ref-ismev2020">2018</a>)</span> :</p>
+<div id="pot" class="section level4 hasAnchor" number="2.5.1.1">
+<h4><span class="header-section-number">2.5.1.1</span> POT<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#pot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nice-fig3"></span>
+<img src="Extremales_files/figure-html/nice-fig3-1.png" alt="Acumulaciones diarias de lluvia en una ubicación en el suroeste de Inglaterra registradas durante el período 1914-1962." width="80%" />
+<p class="caption">
+Figura 2.1: Acumulaciones diarias de lluvia en una ubicación en el suroeste de Inglaterra registradas durante el período 1914-1962.
+</p>
+</div>
+<p>Considerando la Figura <a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#fig:nice-fig3">2.1</a>, podemos definir un evento como extremo si supera un cierto nivel alto, quizás una precipitación diaria de <span class="math inline">\(30\; mm\)</span> en este caso. Entonces, los valores extremos son ahora aquellas observaciones que superan un cierto umbral alto (<span class="citation">Coles et al. (<a href="#ref-coles2001introduction">2001</a>)</span>).</p>
+</div>
+</div>
+<div id="finanzas" class="section level3 hasAnchor" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Finanzas<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#finanzas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Las técnicas de valores extremos han ganado popularidad en aplicaciones financieras. Esto no es sorprendente: la solvencia financiera de una inversión probablemente esté determinada por cambios extremos en las condiciones del mercado en lugar de cambios típicos. Sin embargo, la compleja estructura estocástica de los mercados financieros implica que la aplicación ingenua de técnicas de valores extremos puede ser engañosa.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nice-fig4"></span>
+<img src="Extremales_files/figure-html/nice-fig4-1.png" alt="Panel izquierdo: precios de cierre diario del índice Dow Jones.Panel derecho: rendimientos logarítmicos diarios del índice Dow Jones." width="80%" />
+<p class="caption">
+Figura 2.2: Panel izquierdo: precios de cierre diario del índice Dow Jones. Panel derecho: rendimientos diarios del índice Dow Jones (en logarítmos).
+</p>
+</div>
+<p>La Fig.<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#fig:nice-fig4">2.2</a> muestra los precios de cierre diario del índice Dow Jones durante un período de 5 años. Evidentemente, el nivel del proceso ha cambiado drásticamente a lo largo del período observado, y las cuestiones sobre los valores extremos del comportamiento diario quedan eclipsadas por la variación temporal a largo plazo en la serie. Varios estudios empíricos sobre series de este tipo han indicado que se puede obtener una aproximación a la estacionariedad tomando los logaritmos de los cocientes de observaciones sucesivas, lo que se conoce como los retornos logarítmicos diarios. La Fig. <a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#fig:nice-fig4">2.2</a> sugiere una transformación razonablemente exitosa hacia la estacionariedad. El análisis de las propiedades de valores extremos de dichas series transformadas puede proporcionar a los analistas financieros información clave sobre el mercado.</p>
+
+</div>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-coles2001introduction" class="csl-entry">
+Coles, Stuart, Joanna Bawa, Lesley Trenner, y Pat Dorazio. 2001. <em>An introduction to statistical modeling of extreme values</em>. Vol. 208. Springer.
+</div>
+<div id="ref-ismev2020" class="csl-entry">
+Janet E. Heffernan with R port, Original S functions written by, y R documentation provided by Alec G. Stephenson. 2018. <em>ismev: An Introduction to Statistical Modeling of Extreme Values</em>. <a href="https://CRAN.R-project.org/package=ismev">https://CRAN.R-project.org/package=ismev</a>.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Los valores de <span class="math inline">\(F(t)\)</span> para valores grandes de <span class="math inline">\(t\)</span>.<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Al final del capítulo 2 se verá que esto puede subsanarse con versiones más generales del FTG.<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>En inglés es
+<em>randomness</em>.<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Una excelente referencia para la temática de los
+test <span class="math inline">\(\chi^2\)</span> de ajuste es la introducción del trabajo
+Pearsonian Tests and Modifications (Jorge Graneri,
+CMAT, Facultad de Ciencias, 2002).<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Este hecho es frecuentemente
+ignorado y presentado erróneamente en los textos y
+cursos básicos de Estadística.<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>De manera equivalente, que <span class="math inline">\(F\)</span> tiene DEA <span class="math inline">\(H\)</span>.<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#fnref6" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cross.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-Asintotica.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Extremales.pdf", "Extremales.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"math": {
+"equationNumber": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,34 +1,54 @@
 # Un primer enfoque de datos no $iid$ {#cross}
 
-Cross-references make it easier for your readers to find and link to elements in your book.
-
 ## Análisis de series temporales
 
-There are two steps to cross-reference any heading:
-
-1. Label the heading: `# Hello world {#nice-label}`. 
-    - Leave the label off if you like the automated heading generated based on your heading title: for example, `# Hello world` = `# Hello world {#hello-world}`.
-    - To label an un-numbered heading, use: `# Hello world {-#nice-label}` or `{# Hello world .unnumbered}`.
-
-1. Next, reference the labeled heading anywhere in the text using `\@ref(nice-label)`; for example, please see Chapter \@ref(cross). 
-    - If you prefer text as the link instead of a numbered reference use: [any text you want can go here](#cross).
 
 ## Pruebas de raíz unitaria y tendencia
 
-Figures and tables *with captions* can also be cross-referenced from elsewhere in your book using `\@ref(fig:chunk-label)` and `\@ref(tab:chunk-label)`, respectively.
-
-See Figure \@ref(fig:nice-fig).
-
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases.'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
+```{r include=FALSE}
+library(ismev)
+data(portpirie)
 ```
 
-Don't miss Table \@ref(tab:nice-tab).
 
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(pressure, 10), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
+### Concepto de Estacionariedad
+
+```{r nice-fig2, echo=FALSE, fig.cap='Niveles máximos anuales del nivel del mar registrados en Port Pirie.', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Niveles máximos anuales del nivel del mar registrados en Port Pirie, una localidad justo al norte de Adelaida, Australia del Sur, durante el período 1923-1987'}
+
+plot(portpirie$Year, portpirie$SeaLevel,  xlab = "Year", ylab = "Sea Level (meters)", col="brown")
 ```
+
+
+La figura \@ref(fig:nice-fig2) muestra los niveles máximos anuales del nivel del mar registrados en Port Pirie, una localidad justo al norte de Adelaida, Australia del Sur, durante el período 1923-1987. A partir de estos datos, puede ser necesario estimar el nivel máximo del mar que probablemente ocurra en la región en los próximos 100 o 1000 años. Esto plantea una cuestión importante: ¿cómo podemos estimar los niveles que pueden ocurrir en los próximos 1000 años sin conocer, por ejemplo, los cambios climáticos que podrían suceder?
+
+No hay evidencia contundente en la figura que sugiera que el patrón de variación en los niveles del mar haya cambiado durante el período de observación, pero dicha estabilidad podría no persistir en el futuro. Esta advertencia es crucial: aunque la teoría de valores extremos ha adoptado terminología como el "nivel de retorno a 1000 años", que corresponde al nivel que se espera que sea excedido exactamente una vez en los próximos 1000 años, esto solo tiene sentido bajo el supuesto de estabilidad (o estacionariedad) en el proceso subyacente. Es más realista hablar en términos de niveles que, bajo las condiciones actuales, ocurrirán en un año determinado con una baja probabilidad (@coles2001introduction).
+
+#### Ejemplo en Finanzas
+
+Las técnicas de valores extremos han ganado popularidad en aplicaciones financieras. Esto no es sorprendente: la solvencia financiera de una inversión probablemente esté determinada por cambios extremos en las condiciones del mercado en lugar de cambios típicos. Sin embargo, la compleja estructura estocástica de los mercados financieros implica que la aplicación ingenua de técnicas de valores extremos puede ser engañosa (@coles2001introduction).
+
+```{r echo=TRUE}
+data(dowjones)
+dowjones$LogDiff <- c(NA, diff(log(dowjones$Index)))
+```
+
+
+```{r echo=TRUE}
+head(dowjones)
+```
+
+
+
+
+
+
+```{r nice-fig4,echo=FALSE, fig.cap='Panel a) Precios de cierre diario del índice Dow Jones. Panel b) Rendimientos diarios del índice Dow Jones (en logarítmos).', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Panel izquierdo: precios de cierre diario del índice Dow Jones.Panel derecho: rendimientos logarítmicos diarios del índice Dow Jones.'}
+par(mfrow = c(1,2))
+plot(x=dowjones$Date, y=dowjones$Index, type="l", col="blue", xlab="Date", ylab="Index", main="a)")
+plot(x=dowjones$Date, y=dowjones$LogDiff, type="l", col="purple", xlab="Date", ylab="diff log Index", main="b)")
+```
+
+
+La Fig.\@ref(fig:nice-fig4) muestra los precios de cierre diario del índice Dow Jones durante un período de 5 años. Evidentemente, el nivel del proceso ha cambiado drásticamente a lo largo del período observado, y las cuestiones sobre los valores extremos del comportamiento diario quedan eclipsadas por la variación temporal a largo plazo en la serie. Varios estudios empíricos sobre series de este tipo han indicado que se puede obtener una aproximación a la estacionariedad tomando los logaritmos de los cocientes de observaciones sucesivas, lo que se conoce como los retornos logarítmicos diarios. El panel b) de la Fig. \@ref(fig:nice-fig4)  sugiere una transformación razonablemente exitosa hacia la estacionariedad. El análisis de las propiedades de valores extremos de dichas series transformadas puede proporcionar a los analistas financieros información clave sobre el mercado (@coles2001introduction).
+
+

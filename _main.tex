@@ -136,7 +136,7 @@
 \title{Datos Extremales (2025)}
 \author{MEDIA}
 \date{2025-02-26}
-
+\usepackage{xcolor}
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}{Lemma}[chapter]
@@ -161,7 +161,7 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\chapter{La teoría asintótica clásica, las distribuciones extremales y sus dominios de atracción}\label{la-teoruxeda-asintuxf3tica-cluxe1sica-las-distribuciones-extremales-y-sus-dominios-de-atracciuxf3n}
+\chapter{La teoría asintótica clásica, las distribuciones extremales y sus dominios de atracción}\label{teo}
 
 \section{Datos extremos}\label{datos-extremos}
 
@@ -382,7 +382,7 @@ Si \(X\) tiene distribución \(\Psi^{(\mu, \beta)}\) entonces tiene:
 \item
   \(E(X)=\mu -\beta \Gamma (1+1/\alpha)\)
 \item
-  \begin{equation*}\text{moda}(X) =\begin{cases} 
+  \begin{equation*}\text{moda}(X) =\begin{cases}
     \mu  & \text{si }\; \alpha \leq 1 \\
    \mu-\beta\left\{ \frac{\left( \alpha-1 \right)}{\alpha} \right\}^{1/\alpha} & \text{si }\; \alpha >1
   \end{cases}\end{equation*}
@@ -401,7 +401,7 @@ Si \(X\) tiene distribución \(\Phi_{\alpha}^{(\mu, \beta)}\) entonces tiene:
 \item
   \begin{equation*}
   E(x) =
-  \begin{cases} 
+  \begin{cases}
    \mu + \beta\;\Gamma\left( 1-\frac{1}{\alpha} \right) & \text{si } \alpha>1 \\
    \infty & \text{en otro caso}
   \end{cases}
@@ -413,7 +413,7 @@ Si \(X\) tiene distribución \(\Phi_{\alpha}^{(\mu, \beta)}\) entonces tiene:
 \item
   \begin{equation*}
   \sigma(x) =
-  \begin{cases} 
+  \begin{cases}
    \mu + \left| \Gamma \left( 1 - \frac{2}{\alpha} \right) - \Gamma \left(  1 - \frac{1}{\alpha}\right)\right|  & \text{si } \; \alpha>2 \\
    \infty & \text{si } \; 1<\alpha \leq 2
   \end{cases}
@@ -614,7 +614,7 @@ Veamos los datos que tenemos:
 \end{verbatim}
 
 \begin{verbatim}
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
 ##    4.48   23.44   52.77  183.93  166.82 1675.00
 \end{verbatim}
 
@@ -652,23 +652,23 @@ Verosimilitud a secas\footnote{Este hecho es frecuentemente
   cursos básicos de Estadística.}.
 
 \begin{verbatim}
-## 
+##
 ##  Runs Test
-## 
+##
 ## data:  as.factor(runs_sequence)
 ## Standard Normal = 2.4678, p-value = 0.01359
 ## alternative hypothesis: two.sided
 \end{verbatim}
 
 \begin{verbatim}
-## 
+##
 ##  Spearman's rank correlation rho
-## 
+##
 ## data:  data$X_i and seq_along(data$X_i)
 ## S = 85949, p-value = 0.9483
 ## alternative hypothesis: true rho is not equal to 0
 ## sample estimates:
-##          rho 
+##          rho
 ## -0.007372289
 \end{verbatim}
 
@@ -798,9 +798,9 @@ ese motivo se intenta un ajuste a una Fréchet.
 \end{Shaded}
 
 \begin{verbatim}
-## 
+##
 ##  Chi-squared test for given probabilities
-## 
+##
 ## data:  observed_counts
 ## X-squared = 4.3938, df = 4, p-value = 0.3553
 \end{verbatim}
@@ -988,7 +988,7 @@ Si \(X_1,...,X_n\quad iid\) con distribución \(F\) ``continua'', llamamos \(F_n
 
 \begin{itemize}
   \item[1)] $F_n^*$ se puede apromixar por la distribución de $\mu+\beta Y$ con $Y$ variable con distribución $\Lambda$.
-  \item[2)] Existe $\alpha>0$ tal que $F_n^*$ se puede aproximar por la distribución de $\mu+\beta Y$ con $Y$ variable con distribución $\Phi_{\alpha}$. 
+  \item[2)] Existe $\alpha>0$ tal que $F_n^*$ se puede aproximar por la distribución de $\mu+\beta Y$ con $Y$ variable con distribución $\Phi_{\alpha}$.
   \item[3)] Existe $\alpha>0$ tal que $F_n^*$ se puede aproximar por la distribución de $\mu+\beta Y$ con $Y$ variable con distribución $\Phi_{\alpha}$.
 \end{itemize}
 
@@ -1008,8 +1008,8 @@ Como consecuencia del \(FTG\) cuando se tengan datos máximos, las distribucione
 Como la mayoría de tests de ajustes suponen datos \(iid\), se van a realizar dos tests de aleatoriedad\footnote{En inglés se expresa como \textit{randomness}} a los datos:
 
 \begin{itemize}
-\item  Runs up and down 
-\item  Spearman correlation of ranks 
+\item  Runs up and down
+\item  Spearman correlation of ranks
 \end{itemize}
 
 Se emplea la prueba de ajuste \(\chi^2\) que requiere seleccionar una partición más o menos arbitraria de la recta real de intervalos siendo importante que en cada intervalo haya una cantidad lo suficientemente importante de datos de la muestra. En este sentido, se pueden tomar como extremos de los intervalos los quintiles empíricos de la muestra. Cabe mencionar que este test requiere estimar parámetros por el método de Máxia Verosimilitud Categórica.
@@ -1061,7 +1061,7 @@ El resultado anterior vale incluso si \(M_F\) es infinito, pero si \(M_F\) es fi
 Si \(F\) es una distribución con \(M_F\) finito, y para \(X\) con distribución \(F\) se cumple que
 
 \[
-P(X=M_F)>0 
+P(X=M_F)>0
 \]
 
 entonces \(F\) NO admite DEA.
@@ -1082,11 +1082,11 @@ Si \(F\) es una distribución con \(M_F\) finito o infinito que admite DEA, y \(
 Observación:
 
 \begin{itemize}
-\item Si $F$ es una distribución de Poisson de parámetro $\lambda>0$, $M_F$ es infinito. 
+\item Si $F$ es una distribución de Poisson de parámetro $\lambda>0$, $M_F$ es infinito.
 \item Si $k$ es un natural, entonces:
 \begin{eqnarray}
 \frac{P(X>k)}{P(X\geq k)} &=& \frac{P(X \geq k+1)}{P(X\geq k)} \\ \nonumber
-&=& 1-\frac{P(X=k)}{P(X \geq k)} \approx 1-\left(1- \frac{\lambda}{k}\right) 
+&=& 1-\frac{P(X=k)}{P(X \geq k)} \approx 1-\left(1- \frac{\lambda}{k}\right)
 \end{eqnarray}
 que tiende a $0$ cuando $k$ tiende a infinito, por lo cual $F$ NO admite DEA, o sea que no se puede aproximar el máximo de una sucesión $iid$ de variables de Poisson.
 \end{itemize}
@@ -1393,7 +1393,7 @@ See Figure \ref{fig:nice-fig}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth,alt={Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases.}]{_main_files/figure-latex/nice-fig-1} 
+{\centering \includegraphics[width=0.8\linewidth,alt={Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases.}]{_main_files/figure-latex/nice-fig-1}
 
 }
 
@@ -1465,7 +1465,7 @@ The RStudio Visual Markdown Editor can also make it easier to insert citations: 
 
 Here is an equation.
 
-\begin{equation} 
+\begin{equation}
   f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
   \label{eq:binom}
 \end{equation}

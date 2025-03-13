@@ -47,3 +47,6 @@ metadata-for-sharing
 eq:1
 eq:2
 distribución-max-estables
+eq:binom
+thm:tri
+la-teoria-asintotica-clasica-las-distribuciones-extremales-y-sus-dominios-de-atraccion

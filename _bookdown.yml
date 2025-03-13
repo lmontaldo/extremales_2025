@@ -1,9 +1,32 @@
-delete_merged_file: true
+
+#delete_merged_file: true
+#language:
+#  ui:
+#    chapter_name: "Capítulo "
+#    appendix_name: "Apéndice "
+#    part_name: "Parte "
+#    figure_name: "Figura "
+#    table_name: "Tabla "
+#    theorem_name: "Teorema "
+
+book_filename: 'Extremales'
+output_dir: docs
+new_session: no
 language:
+  label:
+    fig: 'Figura '
+    tab: 'Tabla '
+    eq: 'Ecuación '
+    thm: 'Teorema '
+    lem: 'Lema '
+    def: 'Definición '
+    cor: 'Corolario '
+    prp: 'Proposición '
+    exm: 'Ejemplo '
+    exr: 'Ejercicio '
+    proof: 'Demostración. '
+    remark: 'Nota: '
+    solution: 'Solución. '
   ui:
-    chapter_name: "Capítulo "
-    appendix_name: "Apéndice "
-    part_name: "Parte "
-    figure_name: "Figura "
-    table_name: "Tabla "
-    theorem_name: "Teorema "
+    chapter_name: 'Capítulo '
+delete_merged_file: yes
