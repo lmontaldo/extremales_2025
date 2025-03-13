@@ -926,7 +926,7 @@ siguiente resultado.
 
 ### Ejemplos de libro
 
-Ejemplos de @coles2001introduction con el paquete @ismev2020 :
+Ejemplos de @coles2001introduction con el paquete _ismev_ en R :
 
 ```{r include=FALSE}
 library(nlme)

@@ -173,7 +173,6 @@ div.csl-indent {
 <li class="chapter" data-level="2.5" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#distribución-max-estables"><i class="fa fa-check"></i><b>2.5</b> Distribución max-estables</a>
 <ul>
 <li class="chapter" data-level="2.5.1" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#ejemplos-de-libro"><i class="fa fa-check"></i><b>2.5.1</b> Ejemplos de libro</a></li>
-<li class="chapter" data-level="2.5.2" data-path="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html"><a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#finanzas"><i class="fa fa-check"></i><b>2.5.2</b> Finanzas</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>3</b> Un primer enfoque de datos no <span class="math inline">\(iid\)</span></a>
@@ -181,7 +180,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.1" data-path="cross.html"><a href="cross.html#análisis-de-series-temporales"><i class="fa fa-check"></i><b>3.1</b> Análisis de series temporales</a></li>
 <li class="chapter" data-level="3.2" data-path="cross.html"><a href="cross.html#pruebas-de-raíz-unitaria-y-tendencia"><i class="fa fa-check"></i><b>3.2</b> Pruebas de raíz unitaria y tendencia</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="cross.html"><a href="cross.html#estacionariedad"><i class="fa fa-check"></i><b>3.2.1</b> Estacionariedad</a></li>
+<li class="chapter" data-level="3.2.1" data-path="cross.html"><a href="cross.html#concepto-de-estacionariedad"><i class="fa fa-check"></i><b>3.2.1</b> Concepto de Estacionariedad</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
@@ -908,7 +907,7 @@ siguiente resultado.</p>
 </table>
 <div id="ejemplos-de-libro" class="section level3 hasAnchor" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> Ejemplos de libro<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#ejemplos-de-libro" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Ejemplos de <span class="citation">Coles et al. (<a href="#ref-coles2001introduction">2001</a>)</span> con el paquete <span class="citation">Janet E. Heffernan with R port y Alec G. Stephenson. (<a href="#ref-ismev2020">2018</a>)</span> :</p>
+<p>Ejemplos de <span class="citation">Coles et al. (<a href="#ref-coles2001introduction">2001</a>)</span> con el paquete <em>ismev</em> en R :</p>
 <div id="pot" class="section level4 hasAnchor" number="2.5.1.1">
 <h4><span class="header-section-number">2.5.1.1</span> POT<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#pot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nice-fig3"></span>
@@ -918,19 +917,8 @@ Figura 2.1: Acumulaciones diarias de lluvia en una ubicación en el suroeste de 
 </p>
 </div>
 <p>Considerando la Figura <a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#fig:nice-fig3">2.1</a>, podemos definir un evento como extremo si supera un cierto nivel alto, quizás una precipitación diaria de <span class="math inline">\(30\; mm\)</span> en este caso. Entonces, los valores extremos son ahora aquellas observaciones que superan un cierto umbral alto (<span class="citation">Coles et al. (<a href="#ref-coles2001introduction">2001</a>)</span>).</p>
-</div>
-</div>
-<div id="finanzas" class="section level3 hasAnchor" number="2.5.2">
-<h3><span class="header-section-number">2.5.2</span> Finanzas<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#finanzas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Las técnicas de valores extremos han ganado popularidad en aplicaciones financieras. Esto no es sorprendente: la solvencia financiera de una inversión probablemente esté determinada por cambios extremos en las condiciones del mercado en lugar de cambios típicos. Sin embargo, la compleja estructura estocástica de los mercados financieros implica que la aplicación ingenua de técnicas de valores extremos puede ser engañosa.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nice-fig4"></span>
-<img src="Extremales_files/figure-html/nice-fig4-1.png" alt="Panel izquierdo: precios de cierre diario del índice Dow Jones.Panel derecho: rendimientos logarítmicos diarios del índice Dow Jones." width="80%" />
-<p class="caption">
-Figura 2.2: Panel izquierdo: precios de cierre diario del índice Dow Jones. Panel derecho: rendimientos diarios del índice Dow Jones (en logarítmos).
-</p>
-</div>
-<p>La Fig.<a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#fig:nice-fig4">2.2</a> muestra los precios de cierre diario del índice Dow Jones durante un período de 5 años. Evidentemente, el nivel del proceso ha cambiado drásticamente a lo largo del período observado, y las cuestiones sobre los valores extremos del comportamiento diario quedan eclipsadas por la variación temporal a largo plazo en la serie. Varios estudios empíricos sobre series de este tipo han indicado que se puede obtener una aproximación a la estacionariedad tomando los logaritmos de los cocientes de observaciones sucesivas, lo que se conoce como los retornos logarítmicos diarios. La Fig. <a href="la-teoría-asintótica-clásica-las-distribuciones-extremales-y-sus-dominios-de-atracción.html#fig:nice-fig4">2.2</a> sugiere una transformación razonablemente exitosa hacia la estacionariedad. El análisis de las propiedades de valores extremos de dichas series transformadas puede proporcionar a los analistas financieros información clave sobre el mercado.</p>
 
+</div>
 </div>
 </div>
 </div>
@@ -938,9 +926,6 @@ Figura 2.2: Panel izquierdo: precios de cierre diario del índice Dow Jones. Pan
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-coles2001introduction" class="csl-entry">
 Coles, Stuart, Joanna Bawa, Lesley Trenner, y Pat Dorazio. 2001. <em>An introduction to statistical modeling of extreme values</em>. Vol. 208. Springer.
-</div>
-<div id="ref-ismev2020" class="csl-entry">
-Janet E. Heffernan with R port, Original S functions written by, y R documentation provided by Alec G. Stephenson. 2018. <em>ismev: An Introduction to Statistical Modeling of Extreme Values</em>. <a href="https://CRAN.R-project.org/package=ismev">https://CRAN.R-project.org/package=ismev</a>.
 </div>
 </div>
 <div class="footnotes">
