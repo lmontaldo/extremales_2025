@@ -1,5 +1,196 @@
 # Un primer enfoque de datos no $iid$ {#cross}
 
+Vamos a ver que en la realidad frecuentemente los
+datos no son $iid$, y que hay muy diversos tipos de
+datos no $iid$.
+
+Recordemos que si los datos no son $iid$ es porque los datos:
+
+- no son independientes,
+- su distribución no es la misma,
+- no son independientes y su distribución no es la misma.
+
+
+Nota: Los tests que permiten contrastar la hipótesis $iid$ son: Spearman, runs up and down, etc. En R se encuentran como randtests. 
+
+<!--
+Aclaración 1: Dado que abordamos un curso de
+posgrado, y que en los cursos básicos se abordan
+los tests que permiten contrastar la hipótesis iid
+(Spearman, runs up and down, etc.) supondremos
+estas técnicas conocidas, pero obviamente podemos
+analizarlas aparte con quien lo necesite. En R, por
+ejemplo, se encuentran como randtests. Un escalón
+más arriba, las Series de Tiempo, su análisis
+espectral, etc., es tema de otros curso de segundo
+nivel de Estadística que ofrecemos, por lo cual no
+nos detendremos mayormente, pero nuevamente,
+estamos a disposición de quien lo requiera y en este
+curso al menos explicaremos brevemente los
+aspectos medulares que usemos.
+-->
+
+Cuando los datos:
+
+- No necesariamente son independientes
+pero la estructura de distribuciones es siempre la
+misma, se habla de datos estacionarios o _procesos
+estacionarios_.
+
+- No son independientes pero la
+dependencia se va atenuando a medida que se
+consideran datos más lejanos (para fijar ideas,
+imaginemos que los datos corresponde a medidas
+en el tiempo, y que datos muy viejos no influirían
+significativamente sobre el presente, por ejemplo),
+se habla de datos débilmente dependientes.
+
+El caso más sencillo de esta situación es la de datos
+$m$-dependientes, siendo $m$ un número; si los datos que están a una distancia mayor que $m$ entonces son independientes. Un ejemplo son los procesos llamados promedios móviles de orden $q$, $MA(q)$^[Moving Averages en inglés.] con $m=q$.
+
+Algunos datos bioquímicos del agua de determinadas
+playas uruguayas que se miden diariamente suelen
+ser 7-dependientes, por ejemplo. Esto significa que
+datos que fueron tomados con más de una semana
+de separación, son independientes. En cambio, algunos datos de poblaciones o de
+composición de suelos que se van registrando a lo
+largo de los años, son débilmente dependientes,
+pero no son $m$-dependientes para ningún $m$. Es el
+caso de los llamados procesos autorregresivos de orden $p$, $AR(p)$, donde cada dato es una combinación lineal de los $p$ anteriores más un término aleatorio que es un ruido
+blanco. Esto procesos son Markovianos, es decir, de memoria
+infinita: todo el pasado es tan
+informativo como los últimos $p$ datos^[El carácter
+Markoviano es mal presentado en algunos textos y
+cursos, hablando confusamente de _memoria corta_]. En este sentido, la genética aporta excelentes ejemplos
+para distinguir los procesos markovianos. Esto es así porque algunas pocas generaciones atrás alcanzan para calcular probabilidades de muchas características de la
+descendencia, mientras que la memoria no es corta
+sino infinita: cada característica resulta de toda la
+fiogenética, así nos remontemos al origen de las
+especies. 
+
+<!--- EJEMPLO DEL LIBRO A REVEER -->
+
+<!--- Para simplificar al extremo y usando la
+imagen bíblica (con todo respeto a todos los
+pensares), si Adán y Eva hubieran tenido otros
+genes, la especie podría ser diferente!!-->
+
+
+En la teoría clásica de series de tiempo, una
+estructura $AR(p)$ a partir de un proceso $MA(q)$, da lugar a los procesos $ARMA(p,q)$, que en general son débilmente
+dependientes y aproximan bien a cualquier proceso
+estacionario débilmente dependiente^[Lo cual es una
+de las razones de su popularidad.]. Lo opuesto a dependencia débil es dependencia fuerte^[En inglés, long range dependence.]. En algunos datos de telecomunicaciones que se registran en escalas temporales muy finas, se han
+encontrado ejemplos de dependencia fuerte.
+
+Cuando los datos no son $iid$ pero se vuelven $iid$ al
+restarle una función determinística, son bastante
+simples de manejar. 
+
+Si esta función es monótona, se
+habla de que los datos presentan tendencias
+(trends). Si en cambio la función es periódica, se
+dice que los datos presentan ciclos (seasonal
+effects).
+
+
+
+<!---  [Text to display](https://otexts.com/fpp3/decomposition.html) -->
+
+
+Se puede demostrar que si los datos se vuelven iid
+al restar una función determinística cualquiera (lo
+cual no siempre es el caso!), entonces se pueden
+modelar aproximadamente como
+TENDENCIAS+CICLOS+ DATOS IID.
+
+Al descomponer una serie temporal, a veces es útil primero transformar o ajustar la serie para que la descomposición, y su análisis posterior, sea lo más sencilla posible @rehyndman2021forecasting.
+
+
+
+Vamos a presentar a continuación como “lucen” los
+distintos tipos de datos y qué tan reconocibles son.
+Los datos se han simulado computacionalmente,
+por lo tanto sabemos a cuál es su real estructura.
+Empecemos por lo básico”:¿Cómo lucen datos iid?
+A continuación una muestra de tamaño mil de
+datos iid con distribución Gumbel.
+
+
+```{r echo=FALSE}
+set.seed(123)
+n <- 1000
+library(evd)
+datos_iid <- rgumbel(n)
+
+plot(datos_iid, type = "l", col = "steelblue", lwd = 1.2,
+     main = "Datos iid con distribución Gumbel simulados como serie temporal",
+     xlab = "Tiempo", ylab = "Valor")
+```
+
+
+
+Lo más sobresaliente en la visualización es la presencia de **variaciones abruptas** en los datos, que dificultan su representación gráfica e interpretación inmediata. Estas oscilaciones no son necesariamente equilibradas en torno a un eje horizontal, lo cual se debe a la **asimetría de la distribución Gumbel**, que presenta una cola más larga hacia la izquierda.
+
+Aunque su valor esperado es aproximadamente 0.577, la mediana se encuentra en torno a -0.366, reflejando dicha asimetría. Si hubiésemos simulado datos a partir de una distribución simétrica, como la Normal, podríamos observar un mayor equilibrio visual entre los picos y valles de la serie. Sin embargo, eso podría desviar la atención del aspecto esencial: **las oscilaciones intensas** y el hecho de que **el conjunto de datos no muestra una tendencia clara** ni evidencia de **ciclos persistentes**.
+
+```{r echo=FALSE}
+set.seed(123)
+n <- 1000
+library(evd)
+library(ggplot2)
+library(dplyr)
+
+# Simular datos
+datos <- tibble(
+  tiempo = 1:n,
+  Gumbel = rgumbel(n),
+  Normal = rnorm(n)
+) %>%
+  tidyr::pivot_longer(cols = c(Gumbel, Normal), names_to = "Distribución", values_to = "Valor")
+
+# Graficar
+ggplot(datos, aes(x = tiempo, y = Valor, color = Distribución)) +
+  geom_line() +
+  scale_color_manual(values = c("Gumbel" = "red", "Normal" = "blue")) +
+  facet_wrap(~Distribución, ncol = 1, scales = "free_y") +
+  labs(title = "Simulación de datos iid: Gumbel (asimétrica) vs. Normal (simétrica)",
+       x = "Tiempo", y = "Valor") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+```
+
+
+Del gráfico se desprende que: 
+
+- Gumbel muestra más valores extremos hacia la izquierda (asimetría negativa).
+
+- Normal muestra oscilaciones más simétricas alrededor de cero.
+
+
+
+```{r echo=FALSE}
+ggplot(datos, aes(x = Valor, fill = Distribución, color = Distribución)) +
+  geom_histogram(aes(y = after_stat(density)), bins = 40, alpha = 0.4, position = "identity") +
+  geom_density(linewidth  = 1.2, alpha = 0.2)+
+  scale_fill_manual(values = c("Gumbel" = "red", "Normal" = "blue")) +
+  scale_color_manual(values = c("Gumbel" = "red", "Normal" = "blue")) +
+  facet_wrap(~Distribución, ncol = 1, scales = "free") +
+  labs(title = "Comparación de distribuciones marginales: Gumbel vs. Normal",
+       x = "Valor", y = "Densidad") +
+  theme_minimal()
+```
+
+
+Este comportamiento es típico de secuencias iid: aunque presentan variabilidad local intensa, su estructura global carece de patrones de dependencia temporal.
+
+
+
+Veamos ahora como lucen datos que son Gumbel
+iid, a los que se les ha sumado una tendencia
+parabólica y ciclos sinusoidales.
+
 ## Análisis de series temporales
 
 
