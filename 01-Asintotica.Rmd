@@ -922,28 +922,369 @@ siguiente resultado.
 
 \textcolor{blue}{\rule{1em}{1em} Fréchet es más pesada que Gumbel y mucho más pesada que Weibull.}
 
+Además conducen a otros resultados interesantes,
+como el siguiente, que se deduce de la tabla
+anterior.
 
 
-### Ejemplos de libro
 
-Ejemplos de @coles2001introduction con el paquete _ismev_ en R :
+```{theorem, label="t9"}
+Si $X_1,...,X_n$ independientes y cada $X_i$
+tiene uno de los tres tipos de distribución extremal, entonces la distribución del $max(X_1,...,X_n)$ es:
+  
+a) Cola equivalente a Fréchet, si alguna de las
+variables es Fréchet y alguna otra es Gumbel.
 
-```{r include=FALSE}
-library(nlme)
-library(ismev)
-data(fremantle)
-data(dowjones)
-data(portpirie)
-data(rain)
+b) Fréchet, si alguna es Fréchet y ninguna es
+Gumbel.
+
+c) Cola equivalente Gumbel ninguna es Fréchet
+pero algunas son Gumbel y otras Weibull.
+
+d) Gumbel si todas son Gumbel.
+
+e) Weibull si todas son Weibull.  
 ```
 
-#### POT
+Vamos ahora a ver el concepto de *Dominio de
+Atracción Maximal*.
 
-```{r nice-fig3,echo=FALSE, fig.cap='Acumulaciones diarias de lluvia en una ubicación en el suroeste de Inglaterra registradas durante el período 1914-1962.', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Acumulaciones diarias de lluvia en una ubicación en el suroeste de Inglaterra registradas durante el período 1914-1962.'}
-plot(rain)
+__Observación 20.__ Si $F$ es una distribución, se dice
+que tiene cola de variación regular de orden $-\alpha$,
+para $\alpha \geq 0$ si, $\forall t>0$, $(1-F(tx))/(1-F(x)) \rightarrow t
+^{-\alpha}$ si $x \rightarrow \infty$. Para abreviar se dirá que F es $R_{-\alpha}$. Por ejemplo, para $\alpha=3$, un caso de $F$ es $F(u)=1- 1/u^3$. 
+
+
+Por otra parte se dice que $L$ es una función de
+variación lenta si $\forall t>0, \;L(tx)/L(x) \rightarrow 1 \;\text{ cuando }\;  x\rightarrow \infty$. Un ejemplo es $L(u)=log(u)$.
+
+
+```{definition, label="d4", name="Dominio de Atracción Maximal"}
+Si $H$ es una distribución extremal (Gumbel,
+Weibull o Fréchet) su Dominio de Atracción
+Maximal ($DAM(H)$) está
+constituído por todas las distribuciones $F$ que
+tienen $DEA\;H$.
 ```
 
-Considerando la Figura \@ref(fig:nice-fig3), podemos definir un evento como extremo si supera un cierto nivel alto, quizás una precipitación diaria de $30\; mm$ en este caso. Entonces, los valores extremos son ahora aquellas observaciones que superan un cierto umbral alto (@coles2001introduction).
+
+```{theorem, label="th9", name="DAM de la Fréchet"}
+$F$ pertenece a la $DAM$ de $\Phi_{\alpha}$ si y sólo si
+$1-F(x)=x^{-\alpha} L(x)$ para alguna $L$ de variación lenta,
+lo cual es equivalente a decir que $F$ es $R_{-\alpha}$. 
+Un ejemplo típico seria $1-F(x)= x^{-\alpha}$.
+Además puede tomarse $d_n=0$ y $c_n= n$.
+```
+
+__Ejercicio 2 :__ Recompruebe en función de lo
+anterior que la distribución de Cauchy tiene DEA
+Fréchet.
+
+
+<!--  aca me quede p 30 -->
+
+```{corollary, label="corollary1", name="DAM de la Fréchet"}
+Si $F$ es una distribución con densidad $f$ que cumple
+que $xf(x)/(1-F(x))$ tiende a $\alpha$ cuando $x \rightarrow \infty$, se dice que $F$ cumple la *Condición de Von Mises I*.
+En tal caso, $F$ pertenece a la DAM de $\Phi_{\alpha}$ y mas aún, la $DAM$ de $\Phi_{\alpha}$ son todas las distribuciones que tienen cola equivalente a alguna distribución que
+cumpla la Condición de Von Mises I.
+```
+
+
+Del $DAM$ Fréchet y Teorema 1, surge lo siguiente.
+
+
+```{theorem, label="th10", name="DAM de la Weibull"}
+a) $F$ pertenece a la $DAM$ de $\Psi_{\alpha}$ si y solo si $M_F$ es finito y además $1-F(M_F-1/x)=x^{-\alpha} L(x)$ para alguna $L$ de variación lenta, es decir que pertenece a $R_{-\alpha}$.
+
+Observar que con el cambio de variable $u=M_F-1/x$,
+resulta que $1-F(u)=(^{-}M_F-u)^{\alpha} L(1/(M_F-u)) para
+alguna $L$ de variación lenta, para $u< M_F$.
+
+Un ejemplo típico sería $1-F(u)=(^{-}M_F -u)^{\alpha} ,\; u< MF$.
+
+Además puede tomarse $d_n= M_F$ y $c_n= n-\alpha$.
+
+b) Si $F$ distribución con densidad $f$ positiva en
+$(a,M_F)$ para algun $a< M_F$ y $(M_F -x)f(x)/(1-F(x))$
+tiende a $\alpha$ cuando $x \rightarrow M_F$, se dice que $F$ cumple la *Condición de Von Mises II*. En tal caso, $F$ pertenece a la $DAM$ de $\Psi_{\alpha}$ y mas aún, la $DAM$ de $\Psi_{\alpha}$ son todas las distribuciones que tienen cola equivalente a alguna distribución que cumpla la Condición de
+Von Mises II.
+```
+
+
+__ Ejercicio 3 :__ 
+
+a) Recompruebe en función de lo
+anterior que la distribución uniforme tiene $DEA$
+Weibull. 
+
+b) Encuentre la fórmula explícita de
+alguna distribución que no sea la uniforme y tenga
+$DEA$ Weibull. Solo resta encontra la $DEA$ Gumbel, y eso lo
+aporta el próximo resultado.
+
+
+
+```{theorem, label="th11", name="DAM de la Gumbel"}
+Una distribución $F$ se dice una Función de Von
+Mises con función auxiliar $h$ si existe $a < M_F$ ($M_F$
+puede ser finito o infinito) tal que para algún $c>0$
+se tiene
+
+\begin{equation}
+1-F(x)= c\; \exp{- \int_{a}^{x} 1/h(t) dt}
+(\#eq:th11)
+\end{equation}
+
+Se tiene entonces que la $DAM$ de $\Lambda$ son todas las
+distribuciones que tienen cola equivalente a alguna
+distribución que sea una Función de Von Mises.
+```
+
+
+Básicamente, se trata de colas más livianas que
+cualquier expresión del tipo $1/x^k$, más aún, con
+decaimiento "del tipo exponencial", en el sentido
+preciso siguiente. Si, como en el \@ref(thm:th11), se tiene que 
+
+\begin{equation}
+1-F(x)= c\; \exp{- \int_{a}^{x} 1/h(t) dt},
+(\#eq:th11_eq)
+\end{equation}
+
+entonces se tiene
+$1-F(x)\leq c\; \exp\{-(x-a)/h(x)\}$, donde la función auxiliar
+$h$ es no-decreciente y con asíntota horizontal.
+
+
+Además, $d_n$ y $c_n$ suelen involucrar expresiones
+logarítmicas. Más concretamente, $dn = F^{-1}(1-1/n)$ y,
+$c_n = h(d_n)$, donde $F^{-1}$ es la inversa generalizada (o
+función cuantil), definida por
+$F^{-1}(p)= \inf\{t / F(t)\geq p\}$, para $0<p<1$.
+
+
+
+__ Ejercicio 4 :__
+Recompruebe en función de lo
+anterior que la distribución exponencial y la
+distribución normal tienen $DEA$ Gumbel.
+
+
+__ Ejercicio 5 :___
+
+a) Determinar si la distribución log-normal ($\log X$ es normal) tiene DEA y si la tiene,
+determinar cuál es su DEA. 
+
+b) Con la ayuda de **R**
+simular una muestra de 100 datos iid, cada uno de
+los cuales es el máximo de 500 log-normales
+standard $iid$. Intente ajustar la distribución de la
+muestra de 100 datos de acuerdo a lo obtenido en
+la parte a).
+
+```{r}
+set.seed(123)
+
+# Paso 1: Simular 100 máximos de muestras de tamaño 500 de log-normales estándar
+n_max <- 100
+block_size <- 500
+
+# Generar la matriz de datos: cada fila es una muestra de tamaño 500
+X <- matrix(rlnorm(n_max * block_size, meanlog = 0, sdlog = 1), nrow = n_max)
+
+# Tomar el máximo de cada fila
+block_maxima <- apply(X, 1, max)
+
+# Paso 2: Ajustar distribución de Gumbel
+# La función de densidad Gumbel (máximos) no está en base R, así que usamos evd::fgev
+
+library(evd)
+
+# Ajustar distribución GEV (caso general, incluye Gumbel si xi ~ 0)
+fit <- fgev(block_maxima)
+
+# Ajuste GEV
+fit <- fgev(block_maxima)
+
+# Extraer parámetros
+params <- fit$estimate
+names(params) <- c("loc", "scale", "shape")  # ubicación, escala y forma
+
+# Mostrar resultados
+print(params)
+
+# Interpretación del parámetro de forma (shape = ξ)
+if (abs(params["shape"]) < 0.05) {
+  cat("La forma estimada ξ ≈ 0, por lo tanto la distribución límite es Gumbel.\n")
+} else if (params["shape"] > 0) {
+  cat("La forma estimada ξ > 0 → cola pesada → dominio de Fréchet.\n")
+} else {
+  cat("La forma estimada ξ < 0 → cola fina → dominio de Weibull.\n")
+}
+
+```
+
+
+
+__ Ejercicio 6: Variable acotada en DAM Gumbel __
+
+Tomemos tres constantes estrictamente positivas $\alpha,\; M, \;K$ y definamos $F(x)= 1 – K \exp\{-\alpha /(M-x)\}$ para $x<M$. Mostrar que $F$ es una distribución y que $M_F= M$.
+
+Probar que $F$ es una función de Von Mises con
+función auxiliar $h(t)= (M-t)^2/\alpha$ y que por lo tanto
+está en el $DAM$ Gumbel. Finalmente, si $X_1,...,X_k$
+$iid$ con distribución $F$, calcular las sucesiones de
+reales, $d_n$ y $c_n>0$, tales que la distribución de
+$\frac{max(X_1,...,X_n)- d_n}{c_n}\rightarrow \Lambda$ cuando $n\rightarrow \infty$.
+
+
+```{corollary, label="coll2"}
+Si $F$ pertenece al $DAM$ Gumbel, $M_F$
+es infinito, y se considera $X$ con distribucion $F$,
+entonces $E(X+k)$ es finito para todo $k$ natural.
+```
+
+
+
+Los resultados antes vistos nos permiten reconocer
+que distribuciones tienen $DEA$ y si la tienen, cual
+es. Cierran el tema. Adicionalmente, permiten ver
+con mucha precision que el quid de esta teoría es el
+comportamiento de las colas de las distribuciones,
+que Fréchet corresponde a las colas más pesadas,
+luego la Gumbel y finalmente Weibull.
+Para terminar el capítulo presentaremos la
+distribución de valores extremos generalizada
+(GEV, por sus siglas en inglés), que es una forma
+de compactar en una unica fórmula las tres
+distribuciones extremales, debida a Jenkinson-Von
+Mises.
+
+<!---  comentarios -->
+
+```{definition, label="def5", name="Distribución Generalizada de valores extremos (GEV)"}
+
+
+Se define la GEV con parámetros de posición $\mu$, escala $\beta$ e índice $\xi$ como
+
+\begin{align}
+&G(x;\mu,\beta,\xi) = \left\{ \begin{array}{cl}
+exp\left\{\left( 1+\frac{\xi(t-\mu)}{\beta} \right)^{-\frac{1}{\xi}} \right\}, & \text{si}\;\xi \neq 0,\; \left( 1+\frac{\xi(t-\mu)}{\beta} \right)>0,\;\forall \;t\\
+\exp\left\{ -\exp\left( -\frac{(t-\mu)}{\beta} \right) \right\} & \text{si}\;\xi = 0,\; \forall \;t.
+\end{array} \right.
+\\
+\\
+&\text{Cuando} \left\{ \begin{array}{cl}
+\xi = 0 & \; :\text{corresponde a Gumbel}\\
+\xi < 0 & \; :\text{corresponde a Weibull y}\;\alpha=-1/\xi\\
+\xi > 0 & \; :\text{corresponde a Fréchet y}\;\alpha=1/\xi.
+\end{array} \right.  
+(\#eq:def5)
+\end{align}  
+```
+
+
+
+
+En __R__ existen rutinas para estimar $\xi$ con intervalos de confianza (por máxima verosimilitud, etc.) lo cual da formas de testear si una extremal es
+Gumbel, Weibull o Fréchet.
+
+__ Observación 21.__ En algunas situaciones los datos
+extremales pueden ajustarse a más de un modelo.
+Por ejemplo, puede ocurrir que tanto ajusten los
+datos una Gumbel como una Weibull. Frente a
+estas situaciones, no hay una receta única de cómo
+proceder sino que quien está modelando debe tener
+claro si corresponde volcarse hacia cálculos más
+pesimistas (que dan mayor probabilidad a eventos
+extremos muy severos) o más optimistas. 
+
+Usualmente la opción pesimista implica privilegiar
+la seguridad y la optimista la economía de
+recursos, pero insistimos en que la reflexión ante
+cada caso es indispensable. Un poquito más
+adelante veremos, al comparar un modelo Gumbel
+con un modelo Fréchet, que las diferencias pueden
+ser sumamente drásticas.
+
+__Observación 22.__ Antes de seguir adelante, demos
+la respuesta a la parte a) del Ejercicio 5. Es un
+ejercicio de Cálculo Diferencial sencillo mostrar
+que la cola de un $N(0,1)$, es decir $Q(t)=P(X>t)$,
+donde $X$ tiene distribución $N(0,1)$, es equivalente, para $t$ tendiendo a infinito, a la función $\phi(t)/t$,
+donde $\phi$ representa la densidad normal típica
+(campana de Gauss). Basándose en esto, si se
+considera ahora una variable log-normal $Y$, tal que
+$\log(Y)$ es una $N(0,1)$, puede probarse que su cola
+$R(t)=P(Y>t)$, es equivalente, para t tendiendo a
+infinito, a la función $\phi(\log(t))/\log(t)$. Con un poco más de Cálculo, esta última función puede
+escribirse para $a>e$ (por ejemplo $a=3$), como $c\;\exp\{-\int_a^{t} \frac{1}{h(s)}ds \}$  para $t>a$, donde $c$ se expresa
+en función de $a$ y $h(s)=\frac{s\log(s)}{(\log(s))^2}$, la cual cumple las hipótesis del Teo. \@ref(thm:th11).
+
+Se concluye entonces que la log-normal está en el DAM Gumbel, o, lo que es lo mismo, que la log-
+normal admite DEA Gumbel.
+
+__Observación 23.__ Tiempos y Valores de Retorno.
+
+En Ingeniería y Ciencias Ambientales, suele
+pensarse los eventos extremos (por ejemplo:
+observación por encima de cierto valor muy alto),
+en términos de tiempos de retorno (tiempo que se
+espera para que ocurra un evento). Bajo las
+hipótesis de datos $iid$, el tiempo de retorno $T$ tiene una distribución $Geo(p)$, con $p = P(evento)$, por lo cual el tiempo de retorno medio es $E(T)=1/p$ y pueden hacerse intervalos de confianza para $E(T)$,
+en la medida que exista información de $P(evento)$,
+lo cual puede obtenerse a partir de este capítulo o
+de los siguientes. Cabe observar que muchas veces
+se utiliza la expresión Tiempo de Retorno (TR)
+para $E(T)$. Más precisamente, $TR(u)$, el Tiempo de retorno del valor $u$, es el valor esperado ( o la media) del tiempo que se debe esperar para que la variable en estudio supere el valor $u$, es decir que $TR(u) =1/P(X>u)$, si $X$ es la variable en estudio.
+
+Por otro la lado, en una mirada inversa, el Valor de
+Retorno a tiempo $t$, $VR(t)$ es el valor de $u$ para el cual $TR(u)=t$, es decir que $TR(VR(t))=t$ (y también $VR(TR(u))=u$, es decir que TR y VR son, como
+funciones, inversas una de la otra).
+
+Para "bajar un poco a tierra" estos conceptos,
+vamos a calcularlos y compararlos cuando la
+variable $X$ es Gumbel y cuando (con los mismos
+valores de posición $\mu$ y escala $\beta>0$).
+
+Comencemos por la Gumbel, recordemos que $X$
+tiene distribución $L( \mu,\beta)$ si $X= \mu+\beta Y$, donde $Y$ tiene distribución $L$.
+
+Dado entonces un valor $u>0$, otro valor $t>0$\footnote{Cabe observar que si se supone que las observaciones son diarias (o enteras en la unidad que corresponda), los tiempos de retorno TR se redondean a enteros y los valores de $t$ en la última ecuación se toman enteros.}
+resulta que
+
+
+```{definition, label="defg", name="Ecuaciones G"}
+\begin{align}
+&P(X>u)=1-\exp\left\{ -\exp\left\{ \frac{(u-\mu)}{\beta} \right\} \right\} \\
+&TR(u)=1/P(X>u)\\ 
+&VR(t)= \mu+\beta \log\left\{ \frac{t}{t-1} \right\}
+\end{align}
+```
+
+
+
+
+Sigamos ahora por la Fréchet, recordemos que $X$
+tiene distribución $\Phi_{\alpha}^{\mu,\beta}$ si $x=\mu+\beta Y$, donde $Y$ tiene distribución $\Phi_{\alpha}$.
+
+Dado entonces un valor $u>0$, otro valor $t$ entero,
+resulta que
+
+```{definition, label="deff", name="Ecuaciones F"}
+\begin{align}
+&P(X>u)= 1-\exp\left\{ -\left\{ \frac{\left( u-\mu \right)}{\beta} \right\}^{-\alpha} \right\} \\
+& TR(u)=1/P(X>u)\\
+&VR(t)= \mu+\beta \left\{ \log\left\{\frac{t}{t-1} \right\} \right\}^{-1/\alpha}
+\end{align}
+```
+
+<!-- %%%% pagina 39 a 45 faltan los ejericions %%%
+Para visualizar claramente estos resultados,
+tabularemos y graficaremos los mismos usando en
+ambos casos $\mu=15$, $\beta=10$ y $\alpha= 2.5$ ($\xi =0.4$, no muy distante del $\xi =0$ de la Gumbel).
+-->
 
 
 
